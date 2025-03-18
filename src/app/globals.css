@@ -2,11 +2,42 @@
 
 @theme {
   --color-primary: #F655A6; /* Rosa oscuro */
-  --color-secondary: #F9E8F1; /* Rosa claro */
+  --color-secondary: #FEE1EF; /* Rosa claro */
   --color-accent: #FF80AB; /* Un rosa intermedio */
   --color-background: #FFFFFF; /* Blanco */
   --color-foreground: #333333; /* Negro suave */
   --color-border: #E91E63; /* Borde en rosa fuerte */
-  --color-muted: #FCE4EC; /* Rosa muy suave para fondos secundarios */
+  --color-muted: #A26F89; /* Rosa muy suave para fondos secundarios */
   --color-ring: #D81B60; /* Color de resaltado */
+  --color-text: #854766;
+  --color-bg-secondary:  #F8ECF1; 
+}
+
+
+@layer utilities {
+  .math-symbol {
+    position: absolute;
+    font-weight: bold;
+    z-index: -1;
+    transform-origin: center;
+    opacity: 0.5;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .animate-spin-slow {
+    animation: spin-slow 10s linear infinite;
+  }
 }

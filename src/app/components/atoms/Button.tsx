@@ -2,23 +2,31 @@
 
 import { cn } from "@/libs/utils";
 
-
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "default" | "ghost" | "outline";
-  size?: "icon" | "sm" | "md" | "lg"; // ✅ Agregamos soporte para `size`
+  size?: "icon" | "sm" | "md" | "lg"; // Soporte para tamaños
+  fullWidth?: boolean; // Opción para hacer el botón ancho
 }
 
-export const Button = ({ variant = "default", size = "md", className, ...props }: ButtonProps) => {
+export const Button = ({ 
+  variant = "default", 
+  size = "md", 
+  fullWidth = false, 
+  className, 
+  ...props 
+}: ButtonProps) => {
   return (
     <button
       className={cn(
-        "px-4 py-2 rounded-md transition",
-        variant === "default" && "bg-primary text-white hover:bg-accent",
+        "flex items-center justify-center font-medium transition-all duration-200 rounded-lg  cursor-pointer",
+        variant === "default" && "bg-primary shadow-md text-white hover:opacity-95",
         variant === "ghost" && "bg-transparent text-foreground hover:bg-secondary",
-        variant === "outline" && "border border-border text-primary hover:bg-muted",
-        size === "icon" && "p-2 w-10 h-10 flex items-center justify-center", // ✅ Soporte para botones de iconos
-        size === "sm" && "px-2 py-1 text-sm",
-        size === "lg" && "px-6 py-3 text-lg",
+        variant === "outline" && " text-foreground hover:bg-secondary hover:text-text",
+        size === "icon" && "p-2 w-10 h-10 flex items-center justify-center",
+        size === "sm" && "px-3 py-1.5 text-sm hover:opacity-95",
+        size === "md" && "px-5 py-2 text-base hover:opacity-95",
+        size === "lg" && "px-6 py-2.5 text-lg hover:opacity-95",
+        fullWidth && "w-full",
         className
       )}
       {...props}

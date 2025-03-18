@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Navbar } from "./components/organisms/Navbar";
+import { Hero } from "./components/organisms/Hero";
 
 
 export const metadata: Metadata = {
@@ -18,6 +19,7 @@ export default function RootLayout({
       <body
        >
         <Navbar />
+        <Hero />
         {children}
       </body>
     </html>
