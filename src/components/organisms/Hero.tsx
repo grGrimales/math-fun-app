@@ -7,7 +7,7 @@ import { HeroText } from "../molecules/HeroText";
 
 export const Hero = () => {
   return (
-    <section className="relative w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-primary/20 to-background text-center flex flex-col items-center justify-center overflow-hidden">
+    <section className="hidden md:flex relative w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-primary/20 to-background text-center  flex-col items-center justify-center overflow-hidden">
       {/* Burbujas decorativas */}
       <div className="absolute w-32 h-32 bg-pink-200 rounded-full top-10 left-[10%] opacity-50 animate-float"></div>
       <div className="absolute w-24 h-24 bg-pink-300 rounded-full top-40 right-[15%] opacity-50 animate-float" style={{ animationDelay: "1s" }}></div>
