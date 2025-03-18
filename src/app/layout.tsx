@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Hero } from "@/components/organisms/Hero";
 import { Navbar } from "@/components/organisms/Navbar";
 
 
@@ -19,7 +18,6 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Navbar />
-        <Hero />
         {children}
       </body>
     </html>

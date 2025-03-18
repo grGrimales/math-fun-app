@@ -40,4 +40,21 @@
   .animate-spin-slow {
     animation: spin-slow 10s linear infinite;
   }
+
+  .bubble {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(to right, rgba(255, 182, 193, 0.2), rgba(255, 105, 180, 0.3));
+    box-shadow: 0 0 10px rgba(255, 182, 193, 0.5);
+    z-index: -1;
+  }
+
+  .math-symbol {
+    position: absolute;
+    font-weight: bold;
+    opacity: 0.5;
+    z-index: -1;
+    transform-origin: center;
+  }
+  
 }
