@@ -56,5 +56,18 @@
     z-index: -1;
     transform-origin: center;
   }
+
+  .animate-soft-pulse {
+    animation: pulse-opacity 2s infinite;
+  }
+
+  @keyframes pulse-opacity {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.85;
+    }
+  }
   
 }
