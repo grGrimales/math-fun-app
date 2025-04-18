@@ -119,15 +119,15 @@ export default function AdditionGame() {
             <p className="text-text text-sm">
               Resuelve tantas sumas como puedas en 30 segundos.
             </p>
-            
-            <div className="mt-12 flex items-center justify-center">
-            <Button onClick={startGame} size="md" className="animate-pulse">
-              <Sparkles className="mr-2 h-5 w-5" />
 
-              Comenzar juego
-            </Button>
+            <div className="mt-12 flex items-center justify-center">
+              <Button onClick={startGame} size="md" className="animate-pulse">
+                <Sparkles className="mr-2 h-5 w-5" />
+
+                Comenzar juego
+              </Button>
             </div>
-        
+
           </>
         )}
 
@@ -177,20 +177,27 @@ export default function AdditionGame() {
             <p className="text-sm text-muted-foreground">
               Puntos: <strong>{score}</strong> de {problems.length}
             </p>
-            <Button onClick={startGame} size="lg" className="mt-4">
-              Jugar de nuevo
-            </Button>
+            <div className="mt-12 flex items-center justify-center">
+              <Button onClick={startGame} size="md" className="animate-pulse">
+                <Sparkles className="mr-2 h-5 w-5" />
+
+                Comenzar juego
+              </Button>
+            </div>
           </>
         )}
       </CardContent>
 
       {status === "playing" && (
         <CardFooter className="justify-center">
-          <Button variant="outline" onClick={() => setStatus("finished")}>
-            Terminar
-          </Button>
+          <div className="mt-12 flex items-center justify-center">
+            <Button variant="outline" size="lg"  onClick={() => setStatus("finished")}>
+              Terminar juego
+            </Button>
+        </div>
         </CardFooter>
-      )}
-    </Card>
+  )
+}
+    </Card >
   );
 }
