@@ -1,0 +1,42 @@
+{
+  "Common": {
+    "playNow": "¡Jugar ahora! →",
+    "level": "Nivel",
+    "ageRange": "Edad recomendada"
+  },
+  "HomePage": {
+    "features": {
+      "funGames": "Juegos divertidos",
+      "funGamesDesc": "Sumas, restas y multiplicaciones en formato de juego interactivo",
+      "progress": "Seguimiento de progreso",
+      "progressDesc": "Mira tus resultados y mejora con cada juego",
+      "custom": "Personalizable",
+      "customDesc": "Ajusta la dificultad según la edad y nivel del niño"
+    },
+    "howItWorks": {
+      "title": "¿Cómo funciona?",
+      "description": "MathFun hace que aprender matemáticas sea divertido y efectivo",
+      "step1Title": "Elige un juego",
+      "step1Desc": "Selecciona entre sumas, restas o multiplicaciones",
+      "step2Title": "Juega y aprende",
+      "step2Desc": "Resuelve problemas matemáticos de forma divertida",
+      "step3Title": "Sigue tu progreso",
+      "step3Desc": "Revisa tus resultados y mejora con cada sesión"
+    }
+  },
+  "Game": {
+    "title": "Elige un juego",
+    "description": "Selecciona uno de nuestros juegos matemáticos diseñados para ayudarte a aprender mientras te diviertes.",
+    "addition": "Juego de Sumas",
+    "additionDesc": "Practica sumas con números del 1 al 20",
+    "subtraction": "Juego de Restas",
+    "subtractionDesc": "Practica restas con números del 1 al 20",
+    "multiplication": "Juego de Multiplicación",
+    "multiplicationDesc": "Practica las tablas de multiplicar del 1 al 10",
+    "start": "Comenzar juego",
+    "finish": "Terminar juego",
+    "gameOver": "¡Juego terminado!",
+    "score": "Puntos",
+    "time": "Tiempo"
+  }
+}

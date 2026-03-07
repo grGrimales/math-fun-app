@@ -1,0 +1,42 @@
+{
+  "Common": {
+    "playNow": "Play now →",
+    "level": "Level",
+    "ageRange": "Recommended Age"
+  },
+  "HomePage": {
+    "features": {
+      "funGames": "Fun Games",
+      "funGamesDesc": "Addition, subtraction, and multiplication in an interactive game format",
+      "progress": "Progress Tracking",
+      "progressDesc": "See your results and improve with every game",
+      "custom": "Customizable",
+      "customDesc": "Adjust difficulty based on the child's age and level"
+    },
+    "howItWorks": {
+      "title": "How does it work?",
+      "description": "MathFun makes learning math fun and effective",
+      "step1Title": "Choose a game",
+      "step1Desc": "Select between addition, subtraction, or multiplication",
+      "step2Title": "Play and learn",
+      "step2Desc": "Solve math problems in a fun way",
+      "step3Title": "Track your progress",
+      "step3Desc": "Review your results and improve with each session"
+    }
+  },
+  "Game": {
+    "title": "Choose a game",
+    "description": "Select one of our math games designed to help you learn while having fun.",
+    "addition": "Addition Game",
+    "additionDesc": "Practice addition with numbers from 1 to 20",
+    "subtraction": "Subtraction Game",
+    "subtractionDesc": "Practice subtraction with numbers from 1 to 20",
+    "multiplication": "Multiplication Game",
+    "multiplicationDesc": "Practice multiplication tables from 1 to 10",
+    "start": "Start Game",
+    "finish": "Finish Game",
+    "gameOver": "Game Over!",
+    "score": "Score",
+    "time": "Time"
+  }
+}

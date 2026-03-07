@@ -1,0 +1,42 @@
+{
+  "Common": {
+    "playNow": "Jogar agora →",
+    "level": "Nível",
+    "ageRange": "Idade recomendada"
+  },
+  "HomePage": {
+    "features": {
+      "funGames": "Jogos divertidos",
+      "funGamesDesc": "Somas, subtrações e multiplicações em formato de jogo interativo",
+      "progress": "Acompanhamento de progresso",
+      "progressDesc": "Veja seus resultados e melhore a cada jogo",
+      "custom": "Personalizável",
+      "customDesc": "Ajuste a dificuldade de acordo com a idade e o nível da criança"
+    },
+    "howItWorks": {
+      "title": "Como funciona?",
+      "description": "O MathFun faz com que aprender matemática seja divertido e eficaz",
+      "step1Title": "Escolha um jogo",
+      "step1Desc": "Selecione entre soma, subtração ou multiplicação",
+      "step2Title": "Jogue e aprenda",
+      "step2Desc": "Resolva problemas matemáticos de forma divertida",
+      "step3Title": "Siga seu progresso",
+      "step3Desc": "Confira seus resultados e melhore a cada sessão"
+    }
+  },
+  "Game": {
+    "title": "Escolha um jogo",
+    "description": "Selecione um dos nossos jogos matemáticos criados para te ajudar a aprender enquanto se diverte.",
+    "addition": "Jogo de Soma",
+    "additionDesc": "Pratique somas com números de 1 a 20",
+    "subtraction": "Jogo de Subtração",
+    "subtractionDesc": "Pratique subtrações com números de 1 a 20",
+    "multiplication": "Jogo de Multiplicação",
+    "multiplicationDesc": "Pratique as tabelas de multiplicação do 1 ao 10",
+    "start": "Começar jogo",
+    "finish": "Terminar jogo",
+    "gameOver": "Fim de jogo!",
+    "score": "Pontos",
+    "time": "Tempo"
+  }
+}

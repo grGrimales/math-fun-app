@@ -3,8 +3,13 @@ import { FeaturesSection } from "@/components/organisms/FeaturesSection";
 import { Hero } from "@/components/organisms/Hero";
 import Testimonials from "@/components/organisms/Testimonials";
 
+interface Props {
+  params: Promise<{ locale: string }>;
+}
 
-export default function Home() {
+export default async function Home({ params }: Props) {
+  await params;
+
   return (
     <>
       <Hero />

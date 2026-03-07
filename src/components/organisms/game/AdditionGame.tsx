@@ -40,7 +40,9 @@ export default function AdditionGame() {
         if (!options.includes(wrong)) options.push(wrong);
       }
 
+  
       list.push({ num1, num2, answer, options: options.sort(() => 0.5 - Math.random()) });
+
     }
 
     setProblems(list);

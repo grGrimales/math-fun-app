@@ -3,7 +3,7 @@ import Link from "next/link";
 import React from "react";
 
 interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
-  href?: string; // Nueva prop para manejar el enlace
+  href?: string;
 }
 
 export const Card = ({ className, children, href, ...props }: CardProps) => {
