@@ -1,6 +1,7 @@
 import { HowItWorksSection } from "@/components/molecules/HowItWorksSection";
 import { FeaturesSection } from "@/components/organisms/FeaturesSection";
 import { Hero } from "@/components/organisms/Hero";
+import { Navbar } from "@/components/organisms/Navbar";
 import Testimonials from "@/components/organisms/Testimonials";
 
 interface Props {
@@ -12,6 +13,7 @@ export default async function Home({ params }: Props) {
 
   return (
     <>
+      <Navbar />
       <Hero />
 
       <main>

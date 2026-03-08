@@ -10,6 +10,7 @@ import { PlusIcon, Sparkles, Star, Trophy } from "lucide-react";
 import confetti from "canvas-confetti";
 import { Progress } from "@/components/atoms/Progress";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 type Problem = {
   num1: number;
@@ -19,6 +20,7 @@ type Problem = {
 };
 
 export default function AdditionGame() {
+  const t = useTranslations("Game");
   const [problems, setProblems] = useState<Problem[]>([]);
   const [current, setCurrent] = useState(0);
   const [score, setScore] = useState(0);
@@ -40,7 +42,7 @@ export default function AdditionGame() {
         if (!options.includes(wrong)) options.push(wrong);
       }
 
-  
+
       list.push({ num1, num2, answer, options: options.sort(() => 0.5 - Math.random()) });
 
     }
@@ -107,37 +109,35 @@ export default function AdditionGame() {
         <div className="w-10 h-10 mx-auto bg-white rounded-full flex items-center justify-center shadow">
           <PlusIcon className="h-6 w-6 text-pink-500" />
         </div>
-        <h1 className="text-xl font-bold mt-4">Juego de Sumas</h1>
-        <p className="text-muted-foreground text-sm mt-2">Practica tus habilidades de suma</p>
+        <h1 className="text-xl font-bold mt-4">{t("addition")}</h1>
+        <p className="text-muted-foreground text-sm mt-2">{t("additionPractise")}</p>
       </CardHeader>
 
       <CardContent className="pt-6">
         {status === "ready" && (
           <>
-            <h2 className="text-2xl font-bold">¡Juego de Sumas!</h2>
+            <h2 className="text-2xl font-bold">¡{t("addition")}!</h2>
             <div className="relative w-full h-40 my-6">
-              <Image src="/placeholder.svg?height=160&width=300" alt="Juego de sumas" fill className="object-contain" />
+              <Image src="/placeholder.svg?height=160&width=300" alt={t("addition")} fill className="object-contain" />
             </div>
-            <p className="text-text text-sm">
-              Resuelve tantas sumas como puedas en 30 segundos.
-            </p>
+            <p className="text-text text-sm">{t("additionInstructions")}</p>
 
             <div className="mt-12 flex items-center justify-center">
               <Button onClick={startGame} size="md" className="animate-pulse">
                 <Sparkles className="mr-2 h-5 w-5" />
-
-                Comenzar juego
+                {t("start")}
               </Button>
             </div>
-
           </>
         )}
 
         {status === "playing" && problems.length > 0 && (
           <>
             <div className="flex justify-between mb-2 text-sm text-muted-foreground">
-              <span>Pregunta {current + 1} de {problems.length}</span>
-              <span className={timeLeft <= 5 ? "text-red-500 font-bold" : ""}>Tiempo: {timeLeft}s</span>
+              <span>{t("questionCount", { current: current + 1, total: problems.length })}</span>
+              <span className={timeLeft <= 5 ? "text-red-500 font-bold" : ""}>
+                {t("time")}: {timeLeft}s
+              </span>
             </div>
 
             <Progress value={(current / problems.length) * 100} className="h-2 mb-6" />
@@ -175,15 +175,18 @@ export default function AdditionGame() {
         {status === "finished" && (
           <>
             <Trophy className="mx-auto text-pink-500 w-10 h-10 mb-2" />
-            <h3 className="text-lg font-bold">¡Juego terminado!</h3>
+            <h3 className="text-lg font-bold">{t("gameOver")}</h3>
             <p className="text-sm text-muted-foreground">
-              Puntos: <strong>{score}</strong> de {problems.length}
+              {t.rich("scoreResult", {
+                score: score,
+                total: problems.length,
+                bold: (chunks) => <strong>{chunks}</strong>
+              })}
             </p>
             <div className="mt-12 flex items-center justify-center">
-              <Button onClick={startGame} size="md" className="animate-pulse">
+              <Button onClick={startGame} size="md">
                 <Sparkles className="mr-2 h-5 w-5" />
-
-                Comenzar juego
+                {t("start")}
               </Button>
             </div>
           </>
@@ -192,14 +195,11 @@ export default function AdditionGame() {
 
       {status === "playing" && (
         <CardFooter className="justify-center">
-          <div className="mt-12 flex items-center justify-center">
-            <Button variant="outline" size="lg"  onClick={() => setStatus("finished")}>
-              Terminar juego
-            </Button>
-        </div>
+          <Button variant="outline" size="lg" onClick={() => setStatus("finished")}>
+            {t("finish")}
+          </Button>
         </CardFooter>
-  )
-}
-    </Card >
+      )}
+    </Card>
   );
 }

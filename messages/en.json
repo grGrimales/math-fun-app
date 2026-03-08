@@ -22,6 +22,12 @@
       "step2Desc": "Solve math problems in a fun way",
       "step3Title": "Track your progress",
       "step3Desc": "Review your results and improve with each session"
+    },
+    "hero": {
+      "title": "Learn math while playing with <pink>MathFun</pink>!",
+      "description": "Fun games for kids aged 6 to 11 that help improve math skills",
+      "startPlaying": "Start playing",
+      "logIn": "Log in"
     }
   },
   "Game": {
@@ -37,6 +43,42 @@
     "finish": "Finish Game",
     "gameOver": "Game Over!",
     "score": "Score",
-    "time": "Time"
+    "time": "Time",
+    "additionPractise": "Practice your addition skills",
+    "additionInstructions": "Solve as many additions as you can in 30 seconds.",
+    "questionCount": "Question {current} of {total}",
+    "scoreResult": "Score: <bold>{score}</bold> out of {total}",
+    "levelBeginner": "Beginner to Intermediate",
+    "levelAdvanced": "Intermediate to Advanced",
+    "age69": "6-9 years old",
+    "age811": "8-11 years old"
+  },
+  "Navbar": {
+    "home": "Home",
+    "play": "Play",
+    "results": "Results",
+    "login": "Log in"
+  },
+  "Testimonials": {
+    "title": "Kids love MathFun!",
+    "description": "Find out why parents and teachers recommend our app.",
+    "cta": "Start playing now!",
+    "list": {
+      "1": {
+        "text": "My daughter loves practicing math with MathFun. The colors and animations keep her engaged and wanting to play more!",
+        "name": "Jane Smith",
+        "role": "Mother of Sofia, 7 years old"
+      },
+      "2": {
+        "text": "As a teacher, I recommend MathFun to all my students. It's a fun way to reinforce what they learn in the classroom.",
+        "name": "Charles Miller",
+        "role": "Elementary school teacher"
+      },
+      "3": {
+        "text": "My son used to struggle with multiplication, but since using MathFun, he has improved tremendously. And he has fun!",
+        "name": "Laura Jones",
+        "role": "Mother of Lucas, 9 years old"
+      }
+    }
   }
 }

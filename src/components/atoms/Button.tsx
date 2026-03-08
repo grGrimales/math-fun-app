@@ -3,17 +3,17 @@
 import { cn } from "@/libs/utils";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "default" | "ghost" | "outline"  | "primaryPulse" | "success" | "destructive";
-  size?: "icon" | "sm" | "md" | "lg"; // Soporte para tamaños
-  fullWidth?: boolean; // Opción para hacer el botón ancho
+  variant?: "default" | "ghost" | "outline" | "primaryPulse" | "success" | "destructive";
+  size?: "icon" | "sm" | "md" | "lg";
+  fullWidth?: boolean;
 }
 
-export const Button = ({ 
-  variant = "default", 
-  size = "md", 
-  fullWidth = false, 
-  className, 
-  ...props 
+export const Button = ({
+  variant = "default",
+  size = "md",
+  fullWidth = false,
+  className,
+  ...props
 }: ButtonProps) => {
   return (
     <button

@@ -1,24 +1,27 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Home, GamepadIcon, Trophy, LogIn, Sparkles, Menu, X } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { Link, usePathname } from "@/i18n/routing";
 import { useAuthStore } from "@/store/auth";
 import { cn } from "@/libs/utils";
 import { useMobile } from "@/hooks/use-mobile";
 import { Button } from "../atoms/Button";
+import { LanguageSwitcher } from "../atoms/LanguageSwitcher";
 
 export const Navbar = () => {
+  const t = useTranslations("Navbar");
   const pathname = usePathname();
   const isMobile = useMobile();
   const [menuOpen, setMenuOpen] = useState(false);
   const { user, login } = useAuthStore();
 
+  // Definimos las rutas dentro del componente para usar 't'
   const routes = [
-    { href: "/", label: "Inicio", icon: <Home className="mr-2 h-5 w-5" />, active: pathname === "/" },
-    { href: "/game", label: "Jugar", icon: <GamepadIcon className="mr-2 h-5 w-5" />, active: pathname.startsWith("/game") },
-    { href: "/results", label: "Resultados", icon: <Trophy className="mr-2 h-5 w-5" />, active: pathname === "/results" },
+    { href: "/", label: t("home"), icon: <Home className="mr-2 h-5 w-5" />, active: pathname === "/" },
+    { href: "/game", label: t("play"), icon: <GamepadIcon className="mr-2 h-5 w-5" />, active: pathname.startsWith("/game") },
+    { href: "/results", label: t("results"), icon: <Trophy className="mr-2 h-5 w-5" />, active: pathname === "/results" },
   ];
 
   return (
@@ -33,7 +36,7 @@ export const Navbar = () => {
 
         {/* Menú Desktop */}
         {!isMobile && (
-          <nav className="flex space-x-6">
+          <nav className="flex items-center space-x-4">
             {routes.map((route) => (
               <Link key={route.href} href={route.href}>
                 <Button
@@ -48,6 +51,11 @@ export const Navbar = () => {
                 </Button>
               </Link>
             ))}
+
+            {/* 🌐 Selector de idiomas en Desktop */}
+            <div className="ml-4 border-l pl-4">
+              <LanguageSwitcher />
+            </div>
           </nav>
         )}
 
@@ -55,36 +63,33 @@ export const Navbar = () => {
         {!isMobile && (
           <Button onClick={() => login()} className="bg-primary text-white hover:bg-accent">
             <LogIn className="mr-2 h-5 w-5" />
-            Iniciar sesión
+            {t("login")}
           </Button>
         )}
 
         {/* Menú hamburguesa para móviles */}
         {isMobile && (
-          <button onClick={() => setMenuOpen(!menuOpen)} className="text-primary cursor-pointer">
-            {menuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
+          <div className="flex items-center space-x-4">
+            <LanguageSwitcher />
+            <button onClick={() => setMenuOpen(!menuOpen)} className="text-primary cursor-pointer">
+              {menuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
         )}
       </div>
 
-      {/* Overlay para deshabilitar el fondo cuando el menú está abierto */}
+      {/* Menú Mobile */}
       {isMobile && menuOpen && (
         <>
-          {/* Fondo oscuro semitransparente */}
-          <div
-            className="fixed inset-0 bg-black/50 z-40"
-            onClick={() => setMenuOpen(false)}
-          />
-
-          {/* Menú Mobile */}
+          <div className="fixed inset-0 bg-black/50 z-40" onClick={() => setMenuOpen(false)} />
           <div className="fixed top-16 left-0 w-full bg-white shadow-md p-6 flex flex-col items-center space-y-4 z-50">
             {routes.map((route) => (
-              <Link key={route.href} href={route.href} onClick={() => setMenuOpen(false)}>
+              <Link key={route.href} href={route.href} onClick={() => setMenuOpen(false)} className="w-full">
                 <Button
                   variant={route.active ? "default" : "ghost"}
                   className={cn(
-                    "flex items-center text-lg font-medium",
-                    route.active ? "bg-primary text-white" : "text-foreground hover:text-primary"
+                    "w-full flex items-center justify-center text-lg font-medium",
+                    route.active ? "bg-primary text-white" : ""
                   )}
                 >
                   {route.icon}
@@ -94,7 +99,7 @@ export const Navbar = () => {
             ))}
             <Button onClick={() => login()} className="bg-primary text-white hover:bg-accent w-full">
               <LogIn className="mr-2 h-5 w-5" />
-              Iniciar sesión
+              {t("login")}
             </Button>
           </div>
         </>

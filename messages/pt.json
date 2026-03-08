@@ -22,6 +22,12 @@
       "step2Desc": "Resolva problemas matemáticos de forma divertida",
       "step3Title": "Siga seu progresso",
       "step3Desc": "Confira seus resultados e melhore a cada sessão"
+    },
+    "hero": {
+      "title": "Aprenda matemática enquanto joga com <pink>MathFun</pink>!",
+      "description": "Jogos divertidos para crianças de 6 a 11 anos que ajudam a melhorar as habilidades matemáticas",
+      "startPlaying": "Começar a jogar",
+      "logIn": "Entrar"
     }
   },
   "Game": {
@@ -37,6 +43,42 @@
     "finish": "Terminar jogo",
     "gameOver": "Fim de jogo!",
     "score": "Pontos",
-    "time": "Tempo"
+    "time": "Tempo",
+    "additionPractise": "Pratique suas habilidades de soma",
+    "additionInstructions": "Resolva o máximo de somas que puder em 30 segundos.",
+    "questionCount": "Pergunta {current} de {total}",
+    "scoreResult": "Pontos: <bold>{score}</bold> de {total}",
+    "levelBeginner": "Iniciante a Intermediário",
+    "levelAdvanced": "Intermediário a Avançado",
+    "age69": "6-9 anos",
+    "age811": "8-11 anos"
+  },
+  "Navbar": {
+    "home": "Início",
+    "play": "Jogar",
+    "results": "Resultados",
+    "login": "Entrar"
+  },
+  "Testimonials": {
+    "title": "As crianças adoram o MathFun!",
+    "description": "Descubra por que pais e professores recomendam nosso aplicativo.",
+    "cta": "Comece a jogar agora!",
+    "list": {
+      "1": {
+        "text": "Minha filha adora praticar matemática com o MathFun. As cores e as animações fazem com que ela queira continuar jogando!",
+        "name": "Ana Silva",
+        "role": "Mãe da Sofia, 7 anos"
+      },
+      "2": {
+        "text": "Como professor, recomendo o MathFun a todos os meus alunos. É uma forma divertida de reforçar o que aprendem na aula.",
+        "name": "Carlos Oliveira",
+        "role": "Professor do ensino fundamental"
+      },
+      "3": {
+        "text": "Meu filho costumava ter dificuldades com as multiplicações, mas desde que usa o MathFun melhorou muitíssimo. E ele se diverte!",
+        "name": "Laura Santos",
+        "role": "Mãe do Lucas, 9 anos"
+      }
+    }
   }
 }

@@ -1,11 +1,19 @@
+"use client";
+
+import { useTranslations } from "next-intl";
+
 export const HeroText = () => {
+    const t = useTranslations("HomePage.hero");
+
     return (
         <>
             <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                ¡Aprende matemáticas jugando con <span className="text-primary">MathFun</span>!
+                {t.rich('title', {
+                    pink: (chunks) => <span className="text-primary">{chunks}</span>
+                })}
             </h1>
             <p className="max-w-[700px] text-text md:text-xl">
-                Juegos divertidos para niños de 6 a 11 años que ayudan a mejorar habilidades matemáticas
+                {t("description")}
             </p>
         </>
     );

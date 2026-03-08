@@ -4,8 +4,12 @@ import { GamepadIcon, LogIn, Sparkles } from "lucide-react";
 import Image from "next/image";
 import { Button } from "../atoms/Button";
 import { HeroText } from "../molecules/HeroText";
+import { useTranslations } from "next-intl";
 
 export const Hero = () => {
+
+
+  const t = useTranslations("HomePage.hero");
   return (
     <section className="hidden md:flex relative w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-primary/20 to-background text-center  flex-col items-center justify-center overflow-hidden">
       {/* Burbujas decorativas */}
@@ -39,17 +43,17 @@ export const Hero = () => {
         </div>
 
         {/* Texto del Hero */}
-            <HeroText/>
+        <HeroText />
 
         {/* Botones */}
         <div className="flex flex-col sm:flex-row gap-4">
-          <Button size="lg" className="sm:w-auto flex items-center" fullWidth> 
+          <Button size="lg" className="sm:w-auto flex items-center" fullWidth>
             <GamepadIcon className="mr-2 h-5 w-5" />
-            Empezar a jugar
+            {t("startPlaying")}
           </Button>
           <Button variant="outline" size="md" className="sm:w-auto flex items-center" fullWidth>
             <LogIn className="mr-2 h-5 w-5" />
-            Iniciar sesión
+            {t("logIn")}
           </Button>
         </div>
       </div>

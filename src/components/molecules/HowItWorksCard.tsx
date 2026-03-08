@@ -22,11 +22,9 @@ export const HowItWorksCard = ({ step, title, description, imageSrc, delay }: Ho
         </div>
       </div>
 
-      {/* Texto */}
       <h3 className="text-xl font-bold mb-2">{title}</h3>
       <p className="text-muted-foreground">{description}</p>
 
-      {/* Imagen decorativa */}
       <div className="mt-4 w-full h-32 relative rounded-lg overflow-hidden">
         <Image src="https://picsum.photos/300/200" alt={title} fill className="object-cover" />
       </div>

@@ -22,6 +22,12 @@
       "step2Desc": "Resuelve problemas matemáticos de forma divertida",
       "step3Title": "Sigue tu progreso",
       "step3Desc": "Revisa tus resultados y mejora con cada sesión"
+    },
+    "hero": {
+      "title": "¡Aprende matemáticas jugando con <pink>MathFun</pink>!",
+      "description": "Juegos divertidos para niños de 6 a 11 años que ayudan a mejorar habilidades matemáticas",
+      "startPlaying": "Empezar a jugar",
+      "logIn": "Iniciar sesión"
     }
   },
   "Game": {
@@ -37,6 +43,42 @@
     "finish": "Terminar juego",
     "gameOver": "¡Juego terminado!",
     "score": "Puntos",
-    "time": "Tiempo"
+    "time": "Tiempo",
+    "additionPractise": "Practica tus habilidades de suma",
+    "additionInstructions": "Resuelve tantas sumas como puedas en 30 segundos.",
+    "questionCount": "Pregunta {current} de {total}",
+    "scoreResult": "Puntos: <bold>{score}</bold> de {total}",
+    "levelBeginner": "Principiante a Intermedio",
+    "levelAdvanced": "Intermedio a Avanzado",
+    "age69": "6-9 años",
+    "age811": "8-11 años"
+  },
+  "Navbar": {
+    "home": "Inicio",
+    "play": "Jugar",
+    "results": "Resultados",
+    "login": "Iniciar sesión"
+  },
+  "Testimonials": {
+    "title": "¡Los niños adoran MathFun!",
+    "description": "Descubre por qué padres y profesores recomiendan nuestra aplicación.",
+    "cta": "¡Comienza a jugar ahora!",
+    "list": {
+      "1": {
+        "text": "A mi hija le encanta practicar matemáticas con MathFun. ¡Los colores y las animaciones hacen que quiera seguir jugando!",
+        "name": "Ana García",
+        "role": "Madre de Sofía, 7 años"
+      },
+      "2": {
+        "text": "Como profesor, recomiendo MathFun a todos mis alumnos. Es una forma divertida de reforzar lo que aprenden en clase.",
+        "name": "Carlos Rodríguez",
+        "role": "Profesor de primaria"
+      },
+      "3": {
+        "text": "Mi hijo solía tener dificultades con las multiplicaciones, pero desde que usa MathFun ha mejorado muchísimo. ¡Y se divierte!",
+        "name": "Laura Martínez",
+        "role": "Madre de Lucas, 9 años"
+      }
+    }
   }
 }
