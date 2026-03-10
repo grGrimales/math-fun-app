@@ -17,7 +17,6 @@ export const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const { user, login } = useAuthStore();
 
-  // Definimos las rutas dentro del componente para usar 't'
   const routes = [
     { href: "/", label: t("home"), icon: <Home className="mr-2 h-5 w-5" />, active: pathname === "/" },
     { href: "/game", label: t("play"), icon: <GamepadIcon className="mr-2 h-5 w-5" />, active: pathname.startsWith("/game") },
@@ -52,7 +51,6 @@ export const Navbar = () => {
               </Link>
             ))}
 
-            {/* 🌐 Selector de idiomas en Desktop */}
             <div className="ml-4 border-l pl-4">
               <LanguageSwitcher />
             </div>

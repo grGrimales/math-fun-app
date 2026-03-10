@@ -80,5 +80,20 @@
         "role": "Mãe do Lucas, 9 anos"
       }
     }
+  },
+  "Login": {
+    "LoginTitle": "Bem-vindo ao MathFun!",
+    "LoginSubtitle": "Faça login para salvar seu progresso e competir com amigos",
+    "emailLabel": "Email dos pais",
+    "passwordLabel": "Sua chave secreta",
+    "buttonSubmit": "COMEÇAR A JOGAR!",
+    "buttonLoading": "CARREGANDO...",
+    "noAccount": "Não tem uma conta? ",
+    "signUpLink": "Cadastre-se",
+    "backToHome": "Voltar ao início",
+
+    "errors": {
+      "invalidCredentials": "Ops! Verifique seu email ou chave"
+    }
   }
 }
