@@ -6,25 +6,19 @@ export const useAuth = () => {
     const [error, setError] = useState<string | null>(null);
     const router = useRouter();
 
-    const login = async (credentials: { email: string; pass: string }) => {
+    const login = async (email: string, password: string) => {
         setLoading(true);
         setError(null);
-
         try {
             const response = await fetch('http://localhost:3000/auth/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    email: credentials.email,
-                    password: credentials.pass
-                }),
+                body: JSON.stringify({ email, password }),
             });
 
             if (!response.ok) throw new Error('AUTH_ERROR');
-
             const data = await response.json();
             localStorage.setItem('math-token', data.access_token);
-
             router.push('/dashboard');
         } catch (err: any) {
             setError(err.message);
@@ -33,5 +27,25 @@ export const useAuth = () => {
         }
     };
 
-    return { login, loading, error };
+    const register = async (name: string, email: string, pass: string) => {
+        setLoading(true);
+        setError(null);
+        try {
+            const response = await fetch('http://localhost:3000/auth/signup', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email, password: pass }),
+            });
+
+            if (!response.ok) throw new Error('SIGNUP_ERROR');
+
+            router.push('/login');
+        } catch (err: any) {
+            setError(err.message);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    return { login, register, loading, error };
 };

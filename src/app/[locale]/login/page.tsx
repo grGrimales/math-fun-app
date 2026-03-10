@@ -63,9 +63,11 @@ export default function LoginPage() {
                 <CardFooter className="px-8 pb-10 pt-0 flex justify-center border-t border-dashed border-pink-100 mt-4">
                     <p className="text-muted text-sm mt-6">
                         {t("noAccount")}{" "}
-                        <span className="text-primary font-bold cursor-pointer hover:underline">
-                            {t("signUpLink")}
-                        </span>
+                        <Link href="/signup">
+                            <span className="text-primary font-bold cursor-pointer hover:underline transition-colors">
+                                {t("signUpLink")}
+                            </span>
+                        </Link>
                     </p>
                 </CardFooter>
             </Card>

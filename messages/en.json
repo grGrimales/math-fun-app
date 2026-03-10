@@ -95,5 +95,21 @@
     "errors": {
       "invalidCredentials": "Oops! Check your email or key"
     }
+  },
+  "Register": {
+    "RegisterTitle": "Join MathFun!",
+    "RegisterSubtitle": "Create an account to track your child's progress and access fun math games",
+    "nameLabel": "Child's Name",
+    "emailLabel": "Parent's Email",
+    "passwordLabel": "Create a Secret Key",
+    "buttonSubmit": "CREATE ACCOUNT",
+    "buttonLoading": "CREATING...",
+    "haveAccount": "Already have an account? ",
+    "loginLink": "Log in",
+
+    "errors": {
+      "emailInUse": "This email is already registered. Try logging in.",
+      "weakPassword": "Your secret key should be at least 6 characters long."
+    }
   }
 }

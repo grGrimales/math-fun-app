@@ -94,5 +94,21 @@
     "errors": {
       "invalidCredentials": "¡Ups! Revisa tu correo o clave"
     }
+  },
+  "Register": {
+    "RegisterTitle": "¡Únete a MathFun!",
+    "RegisterSubtitle": "Crea una cuenta para seguir el progreso de tu hijo y acceder a juegos matemáticos divertidos",
+    "nameLabel": "Nombre del niño",
+    "emailLabel": "Correo de mamá o papá",
+    "passwordLabel": "Crea una clave secreta",
+    "buttonSubmit": "CREAR CUENTA",
+    "buttonLoading": "CREANDO...",
+    "haveAccount": "¿Ya tienes una cuenta? ",
+    "loginLink": "Iniciar sesión",
+
+    "errors": {
+      "emailInUse": "Este correo ya está registrado. Intenta iniciar sesión.",
+      "weakPassword": "Tu clave secreta debe tener al menos 6 caracteres."
+    }
   }
 }
