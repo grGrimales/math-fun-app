@@ -1,115 +1,75 @@
-"use client"
+"use client";
 
-import { notFound } from "next/navigation";
-import { use } from "react";
+import { useState } from "react";
+import { useTranslations } from "next-intl";
+import { Star, Zap, Target } from "lucide-react";
+import AdditionGame from "@/components/organisms/game/AdditionGame";
+import { Card } from "@/components/atoms/game/Card";
+import { CardHeader } from "@/components/atoms/game/CardHeader";
+import { CardContent } from "@/components/atoms/game/CardContent";
+import { MathBackground } from "@/components/organisms/MathBackground";
+import { cn } from "@/libs/utils";
 
-import { PlusIcon, MinusIcon, XIcon, Sparkles } from "lucide-react";
-import Image from "next/image"
-import Link from "next/link"
-import { Button } from "@/components/atoms/Button"
-import { Card } from "@/components/atoms/game/Card"
-import { CardHeader } from "@/components/atoms/game/CardHeader"
-import { CardContent } from "@/components/atoms/game/CardContent"
-import { CardFooter } from "@/components/atoms/game/CardFooter"
-import AdditionGame from "@/components/organisms/game/AdditionGame"
+export default function GameLauncherPage({ params }: { params: any }) {
+  const t = useTranslations("GameLauncher");
+  const [difficulty, setDifficulty] = useState<"easy" | "medium" | "hard" | null>(null);
 
-type GameConfig = {
-  title: string;
-  description: string;
-  details: string;
-  icon: React.ReactNode;
-  image: string;
-  color: string;
-  component?: React.ReactNode;
-};
+  const levels = [
+    { id: "easy", icon: <Star size={20} />, color: "bg-green-100 text-green-600 border-green-200" },
+    { id: "medium", icon: <Target size={20} />, color: "bg-blue-100 text-blue-600 border-blue-200" },
+    { id: "hard", icon: <Zap size={20} />, color: "bg-red-100 text-red-600 border-red-200" },
+  ];
 
-interface Params {
-  id: string;
-}
-const games: Record<string, GameConfig> = {
-  addition: {
-    title: "Juego de Sumas",
-    description: "Practica tus habilidades de suma",
-    details: "Resuelve problemas de suma lo más rápido que puedas. Tienes 30 segundos para responder tantas preguntas como sea posible.",
-    icon: <PlusIcon className="h-6 w-6 text-pink-500" />,
-    image: "/placeholder.svg?height=160&width=160",
-    color: "bg-pink-100",
-    component: <AdditionGame />,
-  },
-  subtraction: {
-    title: "Juego de Restas",
-    description: "Practica tus habilidades de resta",
-    details: "Resta números rápidamente antes que el tiempo se acabe. Mejora tu rapidez mental con cada intento.",
-    icon: <MinusIcon className="h-6 w-6 text-purple-500" />,
-    image: "/placeholder.svg?height=160&width=160",
-    color: "bg-purple-100",
-  },
-  multiplication: {
-    title: "Juego de Multiplicación",
-    description: "Practica las tablas de multiplicar",
-    details: "Multiplica rápido y mejora tus habilidades con los números del 1 al 10.",
-    icon: <XIcon className="h-6 w-6 text-fuchsia-500" />,
-    image: "/placeholder.svg?height=160&width=160",
-    color: "bg-fuchsia-100",
-  },
-};
-
-
-export default function GameDetailPage({ params }: { params: Promise<Params> }) {
-  const { id } = use(params);
-
-  const game = games[id as keyof typeof games]
-
-  if (!game) return notFound()
+  if (difficulty) {
+    return (
+      <div className="container mx-auto py-10 flex justify-center animate-in fade-in zoom-in-95 duration-300">
+        <AdditionGame difficulty={difficulty} onExit={() => setDifficulty(null)} />
+      </div>
+    );
+  }
 
   return (
-    <section className="w-full py-12 md:py-24 relative overflow-hidden">
-      <div className="container px-4 md:px-6 flex justify-center">
-        {game.component ? (
-          game.component
-        ) : (
-          <Card className="w-full max-w-md text-center relative z-10 shadow-md">
-            <CardHeader className={`${game.color} px-6 py-4`}>
-              <div className="w-10 h-10 mx-auto bg-white rounded-full flex items-center justify-center shadow">
-                {game.icon}
-              </div>
-              <h1 className="text-2xl font-bold mt-4">{game.title}</h1>
-              <p className="text-muted-foreground text-sm mt-2">{game.description}</p>
-            </CardHeader>
+    <div className="min-h-[80vh] w-full flex items-center justify-center p-4 relative overflow-hidden rounded-[3rem]">
+      <MathBackground />
 
-            <CardContent className="pt-4 px-6">
-              <h2 className="text-2xl font-bold">¡{game.title}!</h2>
-              <div className="relative w-full h-40 my-6">
-                <Image src="/placeholder.svg?height=160&width=300" alt="Juego" fill className="object-contain" />
-              </div>
-              <p className="text-text text-sm">{game.details}</p>
-            </CardContent>
+      <Card className="w-full max-w-sm shadow-2xl border-2 overflow-hidden relative z-10 bg-white/90 backdrop-blur-md">
+        <CardHeader className="bg-pink-100/50 pt-8 pb-4 border-b">
+          <div className="flex justify-center mb-2">
+            <div className="p-3 bg-white rounded-2xl shadow-sm text-primary">
+              <Star className="fill-primary h-6 w-6" />
+            </div>
+          </div>
+          <h1 className="text-xl font-black text-center text-text uppercase tracking-tight">
+            {t('selectDifficulty')}
+          </h1>
+        </CardHeader>
 
-            <CardFooter className="justify-center p-6">
-              <div className="mt-12 flex items-center justify-center">
-                <Link href={`/play/${id}`}>
-                  <Button size="md" className="animate-pulse">
-                    <Sparkles className="mr-2 h-5 w-5" />
-                    Comenzar juego
-                  </Button>
-                </Link>
-              </div>
-            </CardFooter>
-          </Card>
-        )}
-      </div>
+        <CardContent className="p-8">
+          <div className="flex justify-between gap-3">
+            {levels.map((level) => (
+              <button
+                key={level.id}
+                onClick={() => setDifficulty(level.id as any)}
+                className={cn(
+                  "cursor-pointer flex-1 flex flex-col items-center gap-2 p-4 rounded-3xl border-2 transition-all active:scale-90 hover:shadow-md hover:-translate-y-1",
+                  level.color
+                )}
+              >
+                <div className="p-2 bg-white rounded-full shadow-inner">
+                  {level.icon}
+                </div>
+                <span className="text-[10px] font-black uppercase tracking-tighter">
+                  {t(level.id)}
+                </span>
+              </button>
+            ))}
+          </div>
 
-      {/* Burbujas decorativas */}
-      <div className="bubble w-32 h-32 top-20 left-[10%] animate-float"></div>
-      <div className="bubble w-24 h-24 top-40 right-[15%] animate-float" style={{ animationDelay: "1s" }}></div>
-      <div className="math-symbol text-4xl text-pink-300 top-32 left-[30%] animate-spin-slow">+</div>
-      <div
-        className="math-symbol text-5xl text-pink-400 top-64 right-[25%] animate-spin-slow"
-        style={{ animationDelay: "2s" }}
-      >
-        +
-      </div>
-    </section>
+          <p className="text-center text-muted text-[11px] font-medium mt-6 px-4 leading-tight">
+            {t('chooseHowBig')}
+          </p>
+        </CardContent>
+      </Card>
+    </div>
   );
-
 }

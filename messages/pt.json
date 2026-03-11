@@ -30,6 +30,14 @@
       "logIn": "Entrar"
     }
   },
+  "GameLauncher": {
+    "selectDifficulty": "Selecione a dificuldade",
+    "chooseHowBig": "Escolha o tamanho dos números na sua aventura!",
+    "easy": "Fácil",
+    "medium": "Médio",
+    "hard": "Difícil",
+    "rangeLabel": "Intervalo:"
+  },
   "Game": {
     "title": "Escolha um jogo",
     "description": "Selecione um dos nossos jogos matemáticos criados para te ajudar a aprender enquanto se diverte.",
@@ -51,7 +59,12 @@
     "levelBeginner": "Iniciante a Intermediário",
     "levelAdvanced": "Intermediário a Avançado",
     "age69": "6-9 anos",
-    "age811": "8-11 anos"
+    "age811": "8-11 anos",
+    "playAgain": "Jogar novamente",
+    "backToLauncher": "Mudar dificuldade",
+    "easy": "Fácil",
+    "medium": "Médio",
+    "hard": "Difícil"
   },
   "Navbar": {
     "home": "Início",
@@ -110,6 +123,29 @@
     "errors": {
       "emailInUse": "Este email já está registrado. Tente fazer login.",
       "weakPassword": "Sua chave secreta deve ter pelo menos 6 caracteres."
+    }
+  },
+  "Dashboard": {
+    "welcome": "Olá, {name}!",
+    "readyToPlay": "Sua aventura matemática espera por você!",
+    "myStats": "Minhas Conquistas",
+    "chooseMission": "Escolha sua missão",
+    "level": "Nível",
+    "stats": {
+      "hits": "Acertos",
+      "streak": "Sequência",
+      "stars": "Estrelas",
+      "days": "Dias"
+    },
+    "games": {
+      "sums": {
+        "title": "Super Somas",
+        "desc": "Ajude o robô a juntar todas as baterias!"
+      },
+      "subtractions": {
+        "title": "Subtração Galáctica",
+        "desc": "Cuidado com os asteroides que tiram pontos!"
+      }
     }
   }
 }

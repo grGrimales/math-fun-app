@@ -30,6 +30,14 @@
       "logIn": "Log in"
     }
   },
+  "GameLauncher": {
+    "selectDifficulty": "Select Difficulty",
+    "chooseHowBig": "Choose how big the numbers will be in your adventure!",
+    "easy": "Easy",
+    "medium": "Medium",
+    "hard": "Super Hard",
+    "rangeLabel": "Range:"
+  },
   "Game": {
     "title": "Choose a game",
     "description": "Select one of our math games designed to help you learn while having fun.",
@@ -51,7 +59,12 @@
     "levelBeginner": "Beginner to Intermediate",
     "levelAdvanced": "Intermediate to Advanced",
     "age69": "6-9 years old",
-    "age811": "8-11 years old"
+    "age811": "8-11 years old",
+    "playAgain": "Play Again",
+    "backToLauncher": "Change Difficulty",
+    "easy": "Easy",
+    "medium": "Medium",
+    "hard": "Hard"
   },
   "Navbar": {
     "home": "Home",
@@ -110,6 +123,29 @@
     "errors": {
       "emailInUse": "This email is already registered. Try logging in.",
       "weakPassword": "Your secret key should be at least 6 characters long."
+    }
+  },
+  "Dashboard": {
+    "welcome": "Hi, {name}!",
+    "readyToPlay": "Your math adventure awaits!",
+    "myStats": "My Achievements",
+    "chooseMission": "Choose your mission",
+    "level": "Level",
+    "stats": {
+      "hits": "Hits",
+      "streak": "Streak",
+      "stars": "Stars",
+      "days": "Days"
+    },
+    "games": {
+      "sums": {
+        "title": "Super Sums",
+        "desc": "Help the robot collect all the batteries!"
+      },
+      "subtractions": {
+        "title": "Galactic Minus",
+        "desc": "Watch out for asteroids that take away points!"
+      }
     }
   }
 }

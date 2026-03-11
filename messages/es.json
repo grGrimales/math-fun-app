@@ -30,6 +30,14 @@
       "logIn": "Iniciar sesión"
     }
   },
+  "GameLauncher": {
+    "selectDifficulty": "Selecciona la dificultad",
+    "chooseHowBig": "¡Elige qué tan grandes serán los números en tu aventura!",
+    "easy": "Fácil",
+    "medium": "Medio",
+    "hard": "Difícil",
+    "rangeLabel": "Rango:"
+  },
   "Game": {
     "title": "Elige un juego",
     "description": "Selecciona uno de nuestros juegos matemáticos diseñados para ayudarte a aprender mientras te diviertes.",
@@ -51,7 +59,12 @@
     "levelBeginner": "Principiante a Intermedio",
     "levelAdvanced": "Intermedio a Avanzado",
     "age69": "6-9 años",
-    "age811": "8-11 años"
+    "age811": "8-11 años",
+    "playAgain": "Play Again",
+    "backToLauncher": "Change Difficulty",
+    "easy": "Fácil",
+    "medium": "Medio",
+    "hard": "Difícil"
   },
   "Navbar": {
     "home": "Inicio",
@@ -109,6 +122,29 @@
     "errors": {
       "emailInUse": "Este correo ya está registrado. Intenta iniciar sesión.",
       "weakPassword": "Tu clave secreta debe tener al menos 6 caracteres."
+    }
+  },
+  "Dashboard": {
+    "welcome": "¡Hola, {name}!",
+    "readyToPlay": "¡Tu aventura matemática te espera!",
+    "myStats": "Mis Logros",
+    "chooseMission": "Elige tu misión",
+    "level": "Nivel",
+    "stats": {
+      "hits": "Aciertos",
+      "streak": "Racha",
+      "stars": "Estrellas",
+      "days": "Días"
+    },
+    "games": {
+      "sums": {
+        "title": "Súper Sumas",
+        "desc": "¡Ayuda al robot a juntar todas las baterías!"
+      },
+      "subtractions": {
+        "title": "Resta Galáctica",
+        "desc": "¡Cuidado con los asteroides que restan puntos!"
+      }
     }
   }
 }
