@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { useAuthStore } from '@/store/auth';
 
 export const useAuth = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const router = useRouter();
+    const loginStore = useAuthStore((state) => state.login);
 
     const login = async (email: string, password: string) => {
         setLoading(true);
@@ -18,7 +20,10 @@ export const useAuth = () => {
 
             if (!response.ok) throw new Error('AUTH_ERROR');
             const data = await response.json();
+
             localStorage.setItem('math-token', data.access_token);
+            loginStore(data.user);
+
             router.push('/dashboard');
         } catch (err: any) {
             setError(err.message);
@@ -39,7 +44,8 @@ export const useAuth = () => {
 
             if (!response.ok) throw new Error('SIGNUP_ERROR');
 
-            router.push('/login');
+            await login(email, pass);
+
         } catch (err: any) {
             setError(err.message);
         } finally {
