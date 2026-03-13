@@ -1,13 +1,14 @@
 import { useState, useCallback } from 'react';
 import { useAuthStore } from '@/store/auth';
 import { apiRequest } from '@/libs/api';
+import { useTranslations } from 'next-intl';
 
 export const useStats = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const token = useAuthStore((state) => state.token);
 
-    console.log("useStats initialized. Token:", token);
+    const t = useTranslations("ErrorPage");
 
     const saveGameScore = useCallback(async (gameData: {
         gameType: string;
@@ -25,7 +26,7 @@ export const useStats = () => {
             });
             setError(null);
         } catch (err) {
-            setError('No se pudo guardar el progreso');
+            setError(t('errorSavingProgress'));
             console.error(err);
         } finally {
             setLoading(false);
@@ -36,10 +37,9 @@ export const useStats = () => {
         setLoading(true);
         try {
             const data = await apiRequest('/stats/dashboard-summary');
-            console.log("Resumen de estadísticas:", data);
             return data;
         } catch (err) {
-            setError('Error cargando estadísticas');
+            setError(t('errorLoadingStats'));
             console.error(err);
             return null;
         } finally {
@@ -47,5 +47,18 @@ export const useStats = () => {
         }
     }, []);
 
-    return { saveGameScore, fetchSummary, loading, error };
+    const fetchRecent = useCallback(async () => {
+        setLoading(true);
+        try {
+            const data = await apiRequest('/stats/recent');
+            return data;
+        } catch (err) {
+            setError(t('errorLoadingStats'));
+            return [];
+        } finally {
+            setLoading(false);
+        }
+    }, []);
+
+    return { saveGameScore, fetchSummary, fetchRecent, loadingApi: loading, error };
 };

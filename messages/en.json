@@ -138,6 +138,9 @@
       "days": "Days"
     },
     "games": {
+      "addition": "Fun Sums",
+      "subtraction": "Magic Subtractions",
+      "multiplication": "Fun Multiplications",
       "sums": {
         "title": "Super Sums",
         "desc": "Help the robot collect all the batteries!"
@@ -146,6 +149,16 @@
         "title": "Galactic Minus",
         "desc": "Watch out for asteroids that take away points!"
       }
-    }
+    },
+    "recentActivity": "Recent Activity",
+    "noActivity": "No recent activity. Start playing to see your progress here!"
+  },
+  "ErrorPage": {
+    "title": "Oops! Something went wrong.",
+    "description": "We couldn't load the page you were looking for. Please try again later or go back to the homepage.",
+    "backToHome": "Back to Home",
+    "contactSupport": "Contact Support",
+    "errorLoadingStats": "Error loading stats. Please try again later.",
+    "errorSavingProgress": "Error saving progress. Please try again later."
   }
 }

@@ -137,6 +137,9 @@
       "days": "Días"
     },
     "games": {
+      "addition": "Sumas Divertidas",
+      "subtraction": "Restas Mágicas",
+      "multiplication": "Multiplicaciones Divertidas",
       "sums": {
         "title": "Súper Sumas",
         "desc": "¡Ayuda al robot a juntar todas las baterías!"
@@ -145,6 +148,16 @@
         "title": "Resta Galáctica",
         "desc": "¡Cuidado con los asteroides que restan puntos!"
       }
-    }
+    },
+    "recentActivity": "Actividad Reciente",
+    "noActivity": "No hay actividad reciente. ¡Comienza a jugar para ver tu progreso aquí!"
+  },
+  "ErrorPage": {
+    "title": "¡Ups! Algo salió mal.",
+    "description": "No pudimos cargar la página que estabas buscando. Por favor, inténtalo de nuevo más tarde o vuelve a la página de inicio.",
+    "backToHome": "Volver al inicio",
+    "contactSupport": "Contactar soporte",
+    "errorLoadingStats": "Error al cargar las estadísticas. Por favor, inténtalo de nuevo más tarde.",
+    "errorSavingProgress": "Error al guardar el progreso. Por favor, inténtalo de nuevo más tarde."
   }
 }

@@ -1,4 +1,3 @@
-// src/app/[locale]/dashboard/page.tsx
 "use client";
 import { useTranslations } from "next-intl";
 import { useAuthStore } from "@/store/auth";
@@ -9,14 +8,20 @@ import { StatCard } from "@/components/molecules/dashboard/StatCard";
 import { UserHeroHeader } from "@/components/organisms/dashboard/UserHeroHeader";
 import { apiRequest } from "@/libs/api";
 import { useEffect, useState } from "react";
+import { useStats } from "@/hooks/useStats";
+import { RecentActivity } from "@/components/molecules/RecentActivity";
 
 export default function DashboardPage() {
     const t = useTranslations("Dashboard");
+
     const { user } = useAuthStore();
+    const { fetchSummary, fetchRecent, loadingApi } = useStats();
 
 
     const [summary, setSummary] = useState({ hits: 0, stars: 0, streak: 0 });
     const [loading, setLoading] = useState(true);
+    const [recent, setRecent] = useState([]);
+
 
     useEffect(() => {
         async function loadStats() {
@@ -24,13 +29,26 @@ export default function DashboardPage() {
                 const data = await apiRequest('/stats/dashboard-summary');
                 setSummary(data);
             } catch (e) {
-                console.error("Error cargando estadísticas");
+                console.error(e);
             } finally {
                 setLoading(false);
             }
         }
         loadStats();
     }, []);
+
+    useEffect(() => {
+        async function loadDashboard() {
+            const [summaryData, recentData] = await Promise.all([
+                fetchSummary(),
+                fetchRecent()
+            ]);
+            if (summaryData) setSummary(summaryData);
+            if (recentData) setRecent(recentData);
+        }
+        loadDashboard();
+    }, [fetchSummary, fetchRecent]);
+
     return (
         <main className="min-h-screen bg-bg-secondary/20 pb-20 relative overflow-hidden">
             <MathBackground />
@@ -53,6 +71,21 @@ export default function DashboardPage() {
                             <StatCard icon={<Star className="text-primary" />} label={t('stats.stars')} value={loading ? "..." : summary?.stars || 0} colorClass="border-pink-100" />
                         </div>
                     </section>
+                    <section className="mt-8">
+                        <h2 className="text-lg font-bold mb-4 flex items-center gap-2">
+                            <span className="w-2 h-6 bg-pink-500 rounded-full" />
+                            {t('recentActivity')}
+                        </h2>
+                        {loadingApi ? (
+                            <div className="animate-pulse space-y-3">
+                                {[1, 2, 3].map(i => <div key={i} className="h-16 bg-gray-100 rounded-xl" />)}
+                            </div>
+                        ) : (
+                            <RecentActivity activities={recent} />
+                        )}
+                    </section>
+
+
 
                     <section className="lg:col-span-2 space-y-6">
                         <h2 className="text-2xl font-black text-text flex items-center gap-2 uppercase tracking-tighter">
