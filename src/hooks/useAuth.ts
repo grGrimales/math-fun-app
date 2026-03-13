@@ -8,11 +8,13 @@ export const useAuth = () => {
     const router = useRouter();
     const loginStore = useAuthStore((state) => state.login);
 
+    const url = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
+
     const login = async (email: string, password: string) => {
         setLoading(true);
         setError(null);
         try {
-            const response = await fetch('http://localhost:3000/auth/login', {
+            const response = await fetch(`${url}/auth/login`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, password }),
@@ -36,7 +38,7 @@ export const useAuth = () => {
         setLoading(true);
         setError(null);
         try {
-            const response = await fetch('http://localhost:3000/auth/signup', {
+            const response = await fetch(`${url}/auth/signup`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name, email, password: pass }),
