@@ -31,7 +31,7 @@ export const useStats = () => {
         } finally {
             setLoading(false);
         }
-    }, [token]);
+    }, [token, t]);
 
     const fetchSummary = useCallback(async () => {
         setLoading(true);
@@ -45,7 +45,7 @@ export const useStats = () => {
         } finally {
             setLoading(false);
         }
-    }, []);
+    }, [t]);
 
     const fetchRecent = useCallback(async () => {
         setLoading(true);
@@ -59,7 +59,7 @@ export const useStats = () => {
         } finally {
             setLoading(false);
         }
-    }, []);
+    }, [t]);
 
     return { saveGameScore, fetchSummary, fetchRecent, loadingApi: loading, error };
 };

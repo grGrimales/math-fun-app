@@ -48,8 +48,8 @@ export const useAuth = () => {
 
             await login(email, pass);
 
-        } catch (err: any) {
-            setError(err.message);
+        } catch (err) {
+            setError(err instanceof Error ? err.message : 'Unknown error');
         } finally {
             setLoading(false);
         }

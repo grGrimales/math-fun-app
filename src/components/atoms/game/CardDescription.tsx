@@ -1,7 +1,7 @@
 import { cn } from "@/libs/utils";
 import React from "react";
 
-interface CardDescriptionProps extends React.HTMLAttributes<HTMLParagraphElement> {}
+type CardDescriptionProps = React.HTMLAttributes<HTMLParagraphElement>;
 
 export const CardDescription = ({ className, children, ...props }: CardDescriptionProps) => {
   return (

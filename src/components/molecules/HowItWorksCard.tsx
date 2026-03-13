@@ -12,6 +12,7 @@ interface HowItWorksCardProps {
 }
 
 export const HowItWorksCard = ({ step, title, description, imageSrc, delay }: HowItWorksCardProps) => {
+  const imageUrl = imageSrc || "https://picsum.photos/300/200";
   return (
     <div className="flex flex-col items-center text-center bg-card p-6 rounded-lg shadow-sm">
       {/* Número con estrella animada */}
@@ -26,7 +27,7 @@ export const HowItWorksCard = ({ step, title, description, imageSrc, delay }: Ho
       <p className="text-muted-foreground">{description}</p>
 
       <div className="mt-4 w-full h-32 relative rounded-lg overflow-hidden">
-        <Image src="https://picsum.photos/300/200" alt={title} fill className="object-cover" />
+        <Image src={imageUrl} alt={title} fill className="object-cover" />
       </div>
     </div>
   );

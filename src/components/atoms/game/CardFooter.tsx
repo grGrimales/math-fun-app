@@ -1,7 +1,7 @@
 import { cn } from "@/libs/utils";
 import React from "react";
 
-interface CardFooterProps extends React.HTMLAttributes<HTMLDivElement> {}
+type CardFooterProps = React.HTMLAttributes<HTMLDivElement>;
 
 export const CardFooter = ({ className, children, ...props }: CardFooterProps) => {
   return (

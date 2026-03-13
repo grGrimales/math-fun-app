@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useCallback } from "react";
 import { Button } from "@/components/atoms/Button";
-import { MinusIcon, Sparkles, Star, Trophy, ArrowLeft, Timer } from "lucide-react";
+import { MinusIcon, Sparkles, Trophy, ArrowLeft, Timer } from "lucide-react";
 import confetti from "canvas-confetti";
 import { Progress } from "@/components/atoms/Progress";
 import { useTranslations } from "next-intl";

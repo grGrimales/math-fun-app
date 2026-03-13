@@ -1,7 +1,7 @@
 import { cn } from "@/libs/utils";
 import React from "react";
 
-interface CardTitleProps extends React.HTMLAttributes<HTMLHeadingElement> {}
+type CardTitleProps = React.HTMLAttributes<HTMLHeadingElement>;
 
 export const CardTitle = ({ className, children, ...props }: CardTitleProps) => {
   return (

@@ -1,7 +1,15 @@
 import { Target, Calendar, Star } from "lucide-react";
 import { useTranslations } from "next-intl";
 
-export const RecentActivity = ({ activities }: { activities: any[] }) => {
+interface GameActivity {
+    id: string;
+    gameType: 'addition' | 'subtraction' | 'multiplication';
+    score: number;
+    difficulty: string;
+    createdAt: string;
+}
+
+export const RecentActivity = ({ activities }: { activities: GameActivity[] }) => {
     const t = useTranslations("Dashboard");
 
     if (activities.length === 0) {
@@ -28,7 +36,9 @@ export const RecentActivity = ({ activities }: { activities: any[] }) => {
                         <p className="font-black text-pink-500 flex items-center gap-1 justify-end">
                             +{item.score} <Star size={14} className="fill-pink-500" />
                         </p>
-                        <p className="text-[10px] uppercase font-bold text-muted-foreground">{item.difficulty}</p>
+                        <p className="text-[10px] uppercase font-bold text-muted-foreground">
+                            {item.difficulty}
+                        </p>
                     </div>
                 </div>
             ))}
