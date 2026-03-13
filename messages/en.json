@@ -141,6 +141,7 @@
       "addition": "Fun Sums",
       "subtraction": "Magic Subtractions",
       "multiplication": "Fun Multiplications",
+      "multiplicationDesc": "Practice the multiplication tables from 1 to 10!",
       "sums": {
         "title": "Super Sums",
         "desc": "Help the robot collect all the batteries!"

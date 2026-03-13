@@ -138,9 +138,10 @@
       "days": "Dias"
     },
     "games": {
-      "addition": "Sumas Divertidas",
-      "subtraction": "Restas Mágicas",
-      "multiplication": "Multiplicaciones Divertidas",
+      "addition": "Adição Divertida",
+      "subtraction": "Subtração Mágica",
+      "multiplication": "Multiplicações Divertidas",
+      "multiplicationDesc": "Pratique as tabuadas de multiplicação de 1 a 10!",
       "sums": {
         "title": "Super Somas",
         "desc": "Ajude o robô a juntar todas as baterias!"

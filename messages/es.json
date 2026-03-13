@@ -60,8 +60,8 @@
     "levelAdvanced": "Intermedio a Avanzado",
     "age69": "6-9 años",
     "age811": "8-11 años",
-    "playAgain": "Play Again",
-    "backToLauncher": "Change Difficulty",
+    "playAgain": "Jugar de nuevo",
+    "backToLauncher": "Cambiar dificultad",
     "easy": "Fácil",
     "medium": "Medio",
     "hard": "Difícil"
@@ -140,6 +140,7 @@
       "addition": "Sumas Divertidas",
       "subtraction": "Restas Mágicas",
       "multiplication": "Multiplicaciones Divertidas",
+      "multiplicationDesc": "¡Practica las tablas de multiplicar del 1 al 10!",
       "sums": {
         "title": "Súper Sumas",
         "desc": "¡Ayuda al robot a juntar todas las baterías!"

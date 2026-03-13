@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { use, useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Star, Zap, Target } from "lucide-react";
 import AdditionGame from "@/components/organisms/game/AdditionGame";
@@ -9,8 +9,16 @@ import { CardHeader } from "@/components/atoms/game/CardHeader";
 import { CardContent } from "@/components/atoms/game/CardContent";
 import { MathBackground } from "@/components/organisms/MathBackground";
 import { cn } from "@/libs/utils";
+import SubtractionGame from "@/components/organisms/game/SubtractionGame";
+import MultiplicationGame from "@/components/organisms/game/MultiplicationGame";
 
-export default function GameLauncherPage({ params }: { params: any }) {
+interface PageProps {
+  params: Promise<{ id: string }>;
+}
+
+export default function GameLauncherPage({ params }: PageProps) {
+
+  const { id } = use(params);
   const t = useTranslations("GameLauncher");
   const [difficulty, setDifficulty] = useState<"easy" | "medium" | "hard" | null>(null);
 
@@ -20,10 +28,24 @@ export default function GameLauncherPage({ params }: { params: any }) {
     { id: "hard", icon: <Zap size={20} />, color: "bg-red-100 text-red-600 border-red-200" },
   ];
 
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+
+  if (!isMounted) return null;
   if (difficulty) {
     return (
       <div className="container mx-auto py-10 flex justify-center animate-in fade-in zoom-in-95 duration-300">
-        <AdditionGame difficulty={difficulty} onExit={() => setDifficulty(null)} />
+        {id === "multiplication" ? (
+          <MultiplicationGame difficulty={difficulty} onExit={() => setDifficulty(null)} />
+        ) : id === "subtractions" ? (
+          <SubtractionGame difficulty={difficulty} onExit={() => setDifficulty(null)} />
+        ) : (
+          <AdditionGame difficulty={difficulty} onExit={() => setDifficulty(null)} />
+        )}
       </div>
     );
   }

@@ -130,6 +130,14 @@ export default function AdditionGame({ difficulty, onExit }: AdditionGameProps) 
     }
   }, [status, saveStats]);
 
+
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+  if (!isMounted) return null;
+
   return (
     <div className="w-full min-h-[70vh] flex items-center justify-center relative overflow-hidden rounded-[3rem]">
       <MathBackground />

@@ -2,7 +2,7 @@
 import { useTranslations } from "next-intl";
 import { useAuthStore } from "@/store/auth";
 import { MathBackground } from "@/components/organisms/MathBackground";
-import { Trophy, Target, Flame, Star, GamepadIcon, Plus, Minus } from "lucide-react";
+import { Trophy, Target, Flame, Star, GamepadIcon, Plus, Minus, XIcon } from "lucide-react";
 import { GameCard } from "@/components/molecules/game/GameCard";
 import { StatCard } from "@/components/molecules/dashboard/StatCard";
 import { UserHeroHeader } from "@/components/organisms/dashboard/UserHeroHeader";
@@ -91,7 +91,7 @@ export default function DashboardPage() {
                         <h2 className="text-2xl font-black text-text flex items-center gap-2 uppercase tracking-tighter">
                             <GamepadIcon className="text-primary" /> {t('chooseMission')}
                         </h2>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2  gap-6">
                             <GameCard
                                 id="addition"
                                 title={t('games.sums.title')}
@@ -108,6 +108,16 @@ export default function DashboardPage() {
                                 bgColor="bg-purple-50"
                                 level="2" ageRange="6-8"
                                 icon={<Minus className="text-purple-600" size={32} />}
+                                image=""
+                            />
+
+                            <GameCard
+                                id="multiplication"
+                                title={t('games.multiplication')}
+                                description={t('games.multiplicationDesc')}
+                                bgColor="bg-yellow-50"
+                                level="3" ageRange="7-9"
+                                icon={<XIcon className="text-yellow-600" size={32} />}
                                 image=""
                             />
                         </div>
