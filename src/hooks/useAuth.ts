@@ -25,8 +25,8 @@ export const useAuth = () => {
             loginStore(data.user, data.access_token);
 
             router.push('/dashboard');
-        } catch (err: any) {
-            setError(err.message);
+        } catch (err) {
+            setError(err instanceof Error ? err.message : 'Unknown error');
         } finally {
             setLoading(false);
         }

@@ -27,7 +27,7 @@ export const useStats = () => {
             setError(null);
         } catch (err) {
             setError(t('errorSavingProgress'));
-            console.error(err);
+            console.error(err, t('errorSavingProgress'));
         } finally {
             setLoading(false);
         }
@@ -54,6 +54,7 @@ export const useStats = () => {
             return data;
         } catch (err) {
             setError(t('errorLoadingStats'));
+            console.error(t('errorLoadingStats'), err);
             return [];
         } finally {
             setLoading(false);
