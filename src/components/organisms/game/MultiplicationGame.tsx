@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useCallback } from "react";
 import { Button } from "@/components/atoms/Button";
-import { XIcon, Sparkles, Trophy, ArrowLeft, Timer } from "lucide-react";
+import { XIcon, Trophy, ArrowLeft, Timer } from "lucide-react";
 import confetti from "canvas-confetti";
 import { Progress } from "@/components/atoms/Progress";
 import { useTranslations } from "next-intl";
@@ -28,7 +28,7 @@ export default function MultiplicationGame({ difficulty, onExit }: Multiplicatio
         hard: { range: 12, time: 40 },    // Hasta la tabla del 12
     }[difficulty];
 
-    const [problems, setProblems] = useState<any[]>([]);
+    const [problems, setProblems] = useState<{ num1: number; num2: number; answer: number; options: number[] }[]>([]);
     const [current, setCurrent] = useState(0);
     const [score, setScore] = useState(0);
     const [selected, setSelected] = useState<number | null>(null);
@@ -37,7 +37,7 @@ export default function MultiplicationGame({ difficulty, onExit }: Multiplicatio
     const [timeLeft, setTimeLeft] = useState(config.time);
 
     const generateProblems = useCallback(() => {
-        const list: any[] = [];
+        const list: { num1: number; num2: number; answer: number; options: number[] }[] = [];
         for (let i = 0; i < 10; i++) {
             const num1 = Math.floor(Math.random() * config.range) + 1;
             const num2 = Math.floor(Math.random() * 10) + 1;

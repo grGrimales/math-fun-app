@@ -39,7 +39,7 @@ export default function Testimonials() {
               </div>
               <div className="pt-4">
                 <p className="italic text-gray-700 mb-4">
-                  "{t(`list.${key}.text`)}"
+                  {t(`list.${key}.text`)}
                 </p>
                 <div className="flex items-center">
                   <div className="w-10 h-10 rounded-full bg-[#F9ECF2] mr-3"></div>

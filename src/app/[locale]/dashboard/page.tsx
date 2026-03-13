@@ -102,7 +102,7 @@ export default function DashboardPage() {
                                 image=""
                             />
                             <GameCard
-                                id="subtractions"
+                                id="subtraction"
                                 title={t('games.subtractions.title')}
                                 description={t('games.subtractions.desc')}
                                 bgColor="bg-purple-50"

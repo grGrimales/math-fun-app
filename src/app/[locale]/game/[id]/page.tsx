@@ -41,7 +41,7 @@ export default function GameLauncherPage({ params }: PageProps) {
       <div className="container mx-auto py-10 flex justify-center animate-in fade-in zoom-in-95 duration-300">
         {id === "multiplication" ? (
           <MultiplicationGame difficulty={difficulty} onExit={() => setDifficulty(null)} />
-        ) : id === "subtractions" ? (
+        ) : id === "subtraction" ? (
           <SubtractionGame difficulty={difficulty} onExit={() => setDifficulty(null)} />
         ) : (
           <AdditionGame difficulty={difficulty} onExit={() => setDifficulty(null)} />
@@ -71,7 +71,7 @@ export default function GameLauncherPage({ params }: PageProps) {
             {levels.map((level) => (
               <button
                 key={level.id}
-                onClick={() => setDifficulty(level.id as any)}
+                onClick={() => setDifficulty(level.id as "easy" | "medium" | "hard")}
                 className={cn(
                   "cursor-pointer flex-1 flex flex-col items-center gap-2 p-4 rounded-3xl border-2 transition-all active:scale-90 hover:shadow-md hover:-translate-y-1",
                   level.color
