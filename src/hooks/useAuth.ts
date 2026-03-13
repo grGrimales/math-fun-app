@@ -22,7 +22,7 @@ export const useAuth = () => {
             const data = await response.json();
 
             localStorage.setItem('math-token', data.access_token);
-            loginStore(data.user);
+            loginStore(data.user, data.access_token);
 
             router.push('/dashboard');
         } catch (err: any) {

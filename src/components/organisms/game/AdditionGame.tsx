@@ -12,7 +12,8 @@ import { CardHeader } from "@/components/atoms/game/CardHeader";
 import { CardContent } from "@/components/atoms/game/CardContent";
 import { CardFooter } from "@/components/atoms/game/CardFooter";
 import { cn } from "@/libs/utils";
-import { MathBackground } from "@/components/organisms/MathBackground"; // 🎨 Importamos los símbolos
+import { MathBackground } from "@/components/organisms/MathBackground";
+import { useStats } from "@/hooks/useStats";
 
 interface AdditionGameProps {
   difficulty: "easy" | "medium" | "hard";
@@ -111,6 +112,23 @@ export default function AdditionGame({ difficulty, onExit }: AdditionGameProps) 
       return () => clearInterval(timer);
     }
   }, [status]);
+
+  const { saveGameScore } = useStats();
+
+  const saveStats = useCallback(async () => {
+    await saveGameScore({
+      gameType: 'addition',
+      difficulty: difficulty,
+      score: score
+    });
+
+  }, [difficulty, score, saveGameScore]);
+
+  useEffect(() => {
+    if (status === "finished") {
+      saveStats();
+    }
+  }, [status, saveStats]);
 
   return (
     <div className="w-full min-h-[70vh] flex items-center justify-center relative overflow-hidden rounded-[3rem]">

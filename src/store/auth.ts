@@ -1,21 +1,26 @@
 import { create } from "zustand";
-
-interface User {
-  id: string;
-  name: string;
-  email: string;
-}
+import { persist, createJSONStorage } from "zustand/middleware";
 
 interface AuthState {
-  user: User | null;
-  login: (userData: User) => void;
+  user: any | null;
+  token: string | null;
+  login: (userData: any, token: string) => void;
   logout: () => void;
 }
 
-export const useAuthStore = create<AuthState>((set) => ({
-  user: null,
-
-  login: (userData) => set({ user: userData }),
-
-  logout: () => set({ user: null }),
-}));
+export const useAuthStore = create<AuthState>()(
+  persist(
+    (set) => ({
+      user: null,
+      token: null,
+      login: (userData, token) => {
+        set({ user: userData, token });
+      },
+      logout: () => set({ user: null, token: null }),
+    }),
+    {
+      name: "math-auth-storage",
+      storage: createJSONStorage(() => localStorage),
+    }
+  )
+);

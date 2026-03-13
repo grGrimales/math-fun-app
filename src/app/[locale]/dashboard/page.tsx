@@ -7,11 +7,30 @@ import { Trophy, Target, Flame, Star, GamepadIcon, Plus, Minus } from "lucide-re
 import { GameCard } from "@/components/molecules/game/GameCard";
 import { StatCard } from "@/components/molecules/dashboard/StatCard";
 import { UserHeroHeader } from "@/components/organisms/dashboard/UserHeroHeader";
+import { apiRequest } from "@/libs/api";
+import { useEffect, useState } from "react";
 
 export default function DashboardPage() {
     const t = useTranslations("Dashboard");
     const { user } = useAuthStore();
 
+
+    const [summary, setSummary] = useState({ hits: 0, stars: 0, streak: 0 });
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        async function loadStats() {
+            try {
+                const data = await apiRequest('/stats/dashboard-summary');
+                setSummary(data);
+            } catch (e) {
+                console.error("Error cargando estadísticas");
+            } finally {
+                setLoading(false);
+            }
+        }
+        loadStats();
+    }, []);
     return (
         <main className="min-h-screen bg-bg-secondary/20 pb-20 relative overflow-hidden">
             <MathBackground />
@@ -29,9 +48,9 @@ export default function DashboardPage() {
                             <Trophy className="text-yellow-500" /> {t('myStats')}
                         </h2>
                         <div className="grid grid-cols-1 gap-4">
-                            <StatCard icon={<Target className="text-blue-500" />} label={t('stats.hits')} value="124" colorClass="border-blue-100" />
-                            <StatCard icon={<Flame className="text-orange-500" />} label={t('stats.streak')} value={`5 ${t('stats.days')}`} colorClass="border-orange-100" />
-                            <StatCard icon={<Star className="text-primary" />} label={t('stats.stars')} value="450" colorClass="border-pink-100" />
+                            <StatCard icon={<Target className="text-blue-500" />} label={t('stats.hits')} value={loading ? "..." : summary?.hits || 0} colorClass="border-blue-100" />
+                            <StatCard icon={<Flame className="text-orange-500" />} label={t('stats.streak')} value={loading ? "..." : `${summary?.streak || 0} ${t('stats.days')}`} colorClass="border-orange-100" />
+                            <StatCard icon={<Star className="text-primary" />} label={t('stats.stars')} value={loading ? "..." : summary?.stars || 0} colorClass="border-pink-100" />
                         </div>
                     </section>
 
