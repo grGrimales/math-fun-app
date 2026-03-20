@@ -13,6 +13,7 @@ import { RecentActivity } from "@/components/molecules/RecentActivity";
 
 export default function DashboardPage() {
     const t = useTranslations("Dashboard");
+    const tWrriter = useTranslations("WritingGame");
 
     const { user } = useAuthStore();
     const { fetchSummary, fetchRecent, loadingApi } = useStats();
@@ -115,6 +116,16 @@ export default function DashboardPage() {
                                 id="multiplication"
                                 title={t('games.multiplication')}
                                 description={t('games.multiplicationDesc')}
+                                bgColor="bg-yellow-50"
+                                level="3" ageRange="7-9"
+                                icon={<XIcon className="text-yellow-600" size={32} />}
+                                image=""
+                            />
+
+                            <GameCard
+                                id="writing"
+                                title={tWrriter('title')}
+                                description={tWrriter('instructions')}
                                 bgColor="bg-yellow-50"
                                 level="3" ageRange="7-9"
                                 icon={<XIcon className="text-yellow-600" size={32} />}
