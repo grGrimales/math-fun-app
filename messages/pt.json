@@ -64,7 +64,11 @@
     "backToLauncher": "Mudar dificuldade",
     "easy": "Fácil",
     "medium": "Médio",
-    "hard": "Difícil"
+    "hard": "Difícil",
+    "writing": "Escreva o Número",
+    "writingDesc": "Aprenda a escrever números por extenso como um profissional!",
+    "levelIntermediate": "Intermediário",
+    "age79": "7-9 anos"
   },
   "Navbar": {
     "home": "Início",
@@ -161,5 +165,18 @@
     "contactSupport": "Contatar suporte",
     "errorLoadingStats": "Erro ao carregar as estatísticas. Por favor, tente novamente mais tarde.",
     "errorSavingProgress": "Erro ao salvar o progresso. Por favor, tente novamente mais tarde."
+  },
+  "WritingGame": {
+    "title": "Escritura de Números",
+    "instruction": "Escreva este número por extenso:",
+    "check": "Verificar",
+    "next": "Próximo número",
+    "success": "Excelente!",
+    "wrong": "Quase!",
+    "levels": {
+      "easy": "Fácil (2 dígitos)",
+      "medium": "Médio (3 dígitos)",
+      "hard": "Difícil (4 dígitos)"
+    }
   }
 }

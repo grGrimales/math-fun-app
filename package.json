@@ -15,6 +15,8 @@
     "next-intl": "^4.8.3",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
+    "written-number": "^0.11.1",
+    "yarn": "^1.22.22",
     "zustand": "^5.0.3"
   },
   "devDependencies": {

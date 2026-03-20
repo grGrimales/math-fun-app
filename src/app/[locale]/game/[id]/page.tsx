@@ -11,6 +11,7 @@ import { MathBackground } from "@/components/organisms/MathBackground";
 import { cn } from "@/libs/utils";
 import SubtractionGame from "@/components/organisms/game/SubtractionGame";
 import MultiplicationGame from "@/components/organisms/game/MultiplicationGame";
+import { WritingNumbersGame } from "@/components/organisms/game/WritingNumbersGame";
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -43,9 +44,11 @@ export default function GameLauncherPage({ params }: PageProps) {
           <MultiplicationGame difficulty={difficulty} onExit={() => setDifficulty(null)} />
         ) : id === "subtraction" ? (
           <SubtractionGame difficulty={difficulty} onExit={() => setDifficulty(null)} />
-        ) : (
+        ) : id === "addition" ? (
           <AdditionGame difficulty={difficulty} onExit={() => setDifficulty(null)} />
-        )}
+        ) : id === "writing" ? (
+          <WritingNumbersGame difficulty={difficulty} onExit={() => setDifficulty(null)} />
+        ) : null}
       </div>
     );
   }

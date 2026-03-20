@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useMemo } from "react";
 import { Button } from "@/components/atoms/Button";
 import { XIcon, Trophy, ArrowLeft, Timer } from "lucide-react";
 import confetti from "canvas-confetti";
@@ -18,15 +18,16 @@ interface MultiplicationGameProps {
     onExit: () => void;
 }
 
+const GAME_CONFIG = {
+    easy: { min: 1, max: 5, time: 60 },
+    medium: { min: 4, max: 10, time: 45 },
+    hard: { min: 7, max: 12, time: 40 },
+};
+
 export default function MultiplicationGame({ difficulty, onExit }: MultiplicationGameProps) {
     const t = useTranslations("Game");
     const { saveGameScore } = useStats();
-
-    const config = {
-        easy: { range: 5, time: 60 },    // Tablas del 1 al 5
-        medium: { range: 10, time: 45 },  // Tablas del 1 al 10
-        hard: { range: 12, time: 40 },    // Hasta la tabla del 12
-    }[difficulty];
+    const config = useMemo(() => GAME_CONFIG[difficulty], [difficulty]);
 
     const [problems, setProblems] = useState<{ num1: number; num2: number; answer: number; options: number[] }[]>([]);
     const [current, setCurrent] = useState(0);
@@ -38,22 +39,27 @@ export default function MultiplicationGame({ difficulty, onExit }: Multiplicatio
 
     const generateProblems = useCallback(() => {
         const list: { num1: number; num2: number; answer: number; options: number[] }[] = [];
+
         for (let i = 0; i < 10; i++) {
-            const num1 = Math.floor(Math.random() * config.range) + 1;
-            const num2 = Math.floor(Math.random() * 10) + 1;
+            const num1 = Math.floor(Math.random() * (config.max - config.min + 1)) + config.min;
+            const num2 = Math.floor(Math.random() * 9) + 2;
             const answer = num1 * num2;
             const options = [answer];
 
             while (options.length < 4) {
-                const wrong = (Math.floor(Math.random() * config.range) + 1) * (Math.floor(Math.random() * 10) + 1);
+                const r1 = Math.floor(Math.random() * (config.max - config.min + 1)) + config.min;
+                const r2 = Math.floor(Math.random() * 9) + 2;
+                const wrong = r1 * r2;
                 if (!options.includes(wrong)) options.push(wrong);
             }
             list.push({ num1, num2, answer, options: options.sort(() => 0.5 - Math.random()) });
         }
         setProblems(list);
-    }, [config.range]);
+    }, [config]);
 
-    useEffect(() => { generateProblems(); }, [generateProblems]);
+    useEffect(() => {
+        generateProblems();
+    }, [generateProblems]);
 
     const handleSelect = (opt: number) => {
         if (selected !== null) return;

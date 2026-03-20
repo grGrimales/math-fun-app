@@ -64,7 +64,11 @@
     "backToLauncher": "Change Difficulty",
     "easy": "Easy",
     "medium": "Medium",
-    "hard": "Hard"
+    "hard": "Hard",
+    "writing": "Write the Number",
+    "writingDesc": "Learn to write numbers in words like a pro!",
+    "levelIntermediate": "Intermediate",
+    "age79": "7-9 years old"
   },
   "Navbar": {
     "home": "Home",
@@ -161,5 +165,18 @@
     "contactSupport": "Contact Support",
     "errorLoadingStats": "Error loading stats. Please try again later.",
     "errorSavingProgress": "Error saving progress. Please try again later."
+  },
+  "WritingGame": {
+    "title": "Writing Numbers",
+    "instruction": "Write this number in words:",
+    "check": "Check",
+    "next": "Next Number",
+    "success": "Excellent!",
+    "wrong": "Almost!",
+    "levels": {
+      "easy": "Easy (2 digits)",
+      "medium": "Medium (3 digits)",
+      "hard": "Hard (4 digits)"
+    }
   }
 }

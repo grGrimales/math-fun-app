@@ -1,6 +1,6 @@
 "use client";
 
-import { PlusIcon, MinusIcon, XIcon, Sparkles } from "lucide-react";
+import { PlusIcon, MinusIcon, XIcon, Sparkles, PenLine } from "lucide-react";
 import { GameCard } from "@/components/molecules/game/GameCard";
 import { useTranslations } from "next-intl";
 
@@ -36,6 +36,16 @@ export const GamePage = () => {
       bgColor: "bg-fuchsia-100",
       level: t("levelAdvanced"),
       ageRange: t("age811"),
+      image: "/placeholder.svg?height=200&width=300",
+    },
+    {
+      id: "writing",
+      title: t("writing"),
+      description: t("writingDesc"),
+      icon: <PenLine className="h-10 w-10 text-orange-500" />,
+      bgColor: "bg-orange-100",
+      level: t("levelIntermediate"),
+      ageRange: t("age79"),
       image: "/placeholder.svg?height=200&width=300",
     },
   ];

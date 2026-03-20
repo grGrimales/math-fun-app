@@ -64,7 +64,11 @@
     "backToLauncher": "Cambiar dificultad",
     "easy": "Fácil",
     "medium": "Medio",
-    "hard": "Difícil"
+    "hard": "Difícil",
+    "writing": "Escribe el Número",
+    "writingDesc": "¡Aprende a escribir números en letras como un profesional!",
+    "levelIntermediate": "Intermedio",
+    "age79": "7-9 años"
   },
   "Navbar": {
     "home": "Inicio",
@@ -160,5 +164,18 @@
     "contactSupport": "Contactar soporte",
     "errorLoadingStats": "Error al cargar las estadísticas. Por favor, inténtalo de nuevo más tarde.",
     "errorSavingProgress": "Error al guardar el progreso. Por favor, inténtalo de nuevo más tarde."
+  },
+  "WritingGame": {
+    "title": "Escritura de Números",
+    "instruction": "Escribe este número en letras:",
+    "check": "Verificar",
+    "next": "Siguiente número",
+    "success": "¡Excelente!",
+    "wrong": "¡Casi!",
+    "levels": {
+      "easy": "Fácil (2 cifras)",
+      "medium": "Medio (3 cifras)",
+      "hard": "Difícil (4 cifras)"
+    }
   }
 }
