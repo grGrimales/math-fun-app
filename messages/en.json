@@ -2,7 +2,8 @@
   "Common": {
     "playNow": "Play now →",
     "level": "Level",
-    "ageRange": "Recommended Age"
+    "ageRange": "Recommended Age",
+    "validateSession": "Validating mission..."
   },
   "HomePage": {
     "features": {

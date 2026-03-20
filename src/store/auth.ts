@@ -1,17 +1,19 @@
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 
-interface AuthState {
-  user: UserData | null;
-  token: string | null;
-  login: (userData: UserData, token: string) => void;
-  logout: () => void;
-}
-
 interface UserData {
   id: string;
   name: string;
   email: string;
+}
+
+interface AuthState {
+  user: UserData | null;
+  token: string | null;
+  _hasHydrated: boolean; // 👈 Nuevo: Para saber si ya cargó del localStorage
+  login: (userData: UserData, token: string) => void;
+  logout: () => void;
+  setHasHydrated: (state: boolean) => void; // 👈 Función para actualizar el estado
 }
 
 export const useAuthStore = create<AuthState>()(
@@ -19,14 +21,17 @@ export const useAuthStore = create<AuthState>()(
     (set) => ({
       user: null,
       token: null,
-      login: (userData, token) => {
-        set({ user: userData, token });
-      },
+      _hasHydrated: false,
+      login: (userData, token) => set({ user: userData, token }),
       logout: () => set({ user: null, token: null }),
+      setHasHydrated: (state) => set({ _hasHydrated: state }),
     }),
     {
       name: "math-auth-storage",
       storage: createJSONStorage(() => localStorage),
+      onRehydrateStorage: () => (state) => {
+        state?.setHasHydrated(true);
+      },
     }
   )
 );
