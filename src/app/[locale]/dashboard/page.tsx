@@ -125,7 +125,7 @@ export default function DashboardPage() {
                             <GameCard
                                 id="writing"
                                 title={tWrriter('title')}
-                                description={tWrriter('instructions')}
+                                description={tWrriter('instruction')}
                                 bgColor="bg-yellow-50"
                                 level="3" ageRange="7-9"
                                 icon={<XIcon className="text-yellow-600" size={32} />}
