@@ -1,7 +1,7 @@
 // src/components/organisms/game/AdditionGame.tsx
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import { Button } from "@/components/atoms/Button";
 import { PlusIcon, Sparkles, Star, Trophy, ArrowLeft, Timer } from "lucide-react";
 import confetti from "canvas-confetti";
@@ -43,6 +43,11 @@ export default function AdditionGame({ difficulty, onExit }: AdditionGameProps) 
   const [correct, setCorrect] = useState<boolean | null>(null);
   const [status, setStatus] = useState<"playing" | "finished">("playing");
   const [timeLeft, setTimeLeft] = useState(config.time);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => { if (timeoutRef.current) clearTimeout(timeoutRef.current); };
+  }, []);
 
   const generateProblems = useCallback(() => {
     const list: Problem[] = [];
@@ -86,7 +91,7 @@ export default function AdditionGame({ difficulty, onExit }: AdditionGameProps) 
       });
     }
 
-    setTimeout(() => {
+    timeoutRef.current = setTimeout(() => {
       if (current < problems.length - 1) {
         setCurrent((i) => i + 1);
         setSelected(null);

@@ -51,7 +51,9 @@ export const WritingNumbersGame = ({ difficulty = 'easy', onExit }: Props) => {
         const newNum = Math.floor(Math.random() * (max - min + 1)) + min;
 
         setNumber(newNum);
-        setExpectedText(writtenNumber(newNum, { lang: locale as any }));
+        const supportedLangs = ['es', 'en', 'pt'];
+        const lang = supportedLangs.includes(locale) ? locale : 'en';
+        setExpectedText(writtenNumber(newNum, { lang }));
         setUserAnswer("");
         setFeedback({ status: 'idle' });
     }, [difficulty, locale]);

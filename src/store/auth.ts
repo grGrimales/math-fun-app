@@ -10,10 +10,10 @@ interface UserData {
 interface AuthState {
   user: UserData | null;
   token: string | null;
-  _hasHydrated: boolean; // 👈 Nuevo: Para saber si ya cargó del localStorage
+  _hasHydrated: boolean;
   login: (userData: UserData, token: string) => void;
   logout: () => void;
-  setHasHydrated: (state: boolean) => void; // 👈 Función para actualizar el estado
+  setHasHydrated: (state: boolean) => void;
 }
 
 export const useAuthStore = create<AuthState>()(

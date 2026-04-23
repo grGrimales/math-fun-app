@@ -24,7 +24,7 @@ export const Button = ({
         variant === "outline" && " text-foreground hover:bg-secondary hover:text-text",
         variant === "primaryPulse",
         variant === "success" && "bg-green-500 text-white hover:bg-green-600",
-        variant === "destructive" && "bg-red-500 text-white hover:bg-red-600" &&
+        variant === "destructive" && "bg-red-500 text-white hover:bg-red-600",
         size === "icon" && "p-2 w-10 h-10 flex items-center justify-center",
         size === "sm" && "px-3 py-1.5 text-sm hover:opacity-95",
         size === "md" && "px-5 py-2 text-base hover:opacity-95",

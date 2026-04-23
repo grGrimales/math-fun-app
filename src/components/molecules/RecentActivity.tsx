@@ -1,7 +1,7 @@
 import { Target, Calendar, Star } from "lucide-react";
 import { useTranslations } from "next-intl";
 
-interface GameActivity {
+export interface GameActivity {
     id: string;
     gameType: 'addition' | 'subtraction' | 'multiplication';
     score: number;

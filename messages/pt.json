@@ -167,6 +167,17 @@
     "errorLoadingStats": "Erro ao carregar as estatísticas. Por favor, tente novamente mais tarde.",
     "errorSavingProgress": "Erro ao salvar o progresso. Por favor, tente novamente mais tarde."
   },
+  "Results": {
+    "back": "Voltar",
+    "title": "Meus Resultados",
+    "subtitle": "Veja tudo o que você conquistou!",
+    "gamesPlayed": "Jogos jogados",
+    "totalStars": "Estrelas totais",
+    "bestLevel": "Melhor nível",
+    "recentHistory": "Histórico recente",
+    "loading": "Carregando resultados",
+    "noData": "Você ainda não jogou nenhuma partida. Comece agora!"
+  },
   "WritingGame": {
     "title": "Escritura de Números",
     "instruction": "Escreva este número por extenso:",

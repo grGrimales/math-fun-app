@@ -6,10 +6,9 @@ import { Trophy, Target, Flame, Star, GamepadIcon, Plus, Minus, XIcon } from "lu
 import { GameCard } from "@/components/molecules/game/GameCard";
 import { StatCard } from "@/components/molecules/dashboard/StatCard";
 import { UserHeroHeader } from "@/components/organisms/dashboard/UserHeroHeader";
-import { apiRequest } from "@/libs/api";
 import { useEffect, useState } from "react";
 import { useStats } from "@/hooks/useStats";
-import { RecentActivity } from "@/components/molecules/RecentActivity";
+import { RecentActivity, GameActivity } from "@/components/molecules/RecentActivity";
 
 export default function DashboardPage() {
     const t = useTranslations("Dashboard");
@@ -18,25 +17,9 @@ export default function DashboardPage() {
     const { user } = useAuthStore();
     const { fetchSummary, fetchRecent, loadingApi } = useStats();
 
-
     const [summary, setSummary] = useState({ hits: 0, stars: 0, streak: 0 });
     const [loading, setLoading] = useState(true);
-    const [recent, setRecent] = useState([]);
-
-
-    useEffect(() => {
-        async function loadStats() {
-            try {
-                const data = await apiRequest('/stats/dashboard-summary');
-                setSummary(data);
-            } catch (e) {
-                console.error(e);
-            } finally {
-                setLoading(false);
-            }
-        }
-        loadStats();
-    }, []);
+    const [recent, setRecent] = useState<GameActivity[]>([]);
 
     useEffect(() => {
         async function loadDashboard() {
@@ -46,6 +29,7 @@ export default function DashboardPage() {
             ]);
             if (summaryData) setSummary(summaryData);
             if (recentData) setRecent(recentData);
+            setLoading(false);
         }
         loadDashboard();
     }, [fetchSummary, fetchRecent]);

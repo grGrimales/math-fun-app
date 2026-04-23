@@ -6,6 +6,7 @@ import { CardDescription } from "@/components/atoms/game/CardDescription";
 import { CardContent } from "@/components/atoms/game/CardContent";
 import { CardFooter } from "@/components/atoms/game/CardFooter";
 import { Card } from "@/components/atoms/game/Card";
+import { useTranslations } from "next-intl";
 
 interface GameCardProps {
   id: string;
@@ -19,6 +20,7 @@ interface GameCardProps {
 }
 
 export const GameCard = ({ id, title, description, icon, bgColor, level, ageRange, image }: GameCardProps) => {
+  const t = useTranslations("Common");
   return (
     <Card href={`/game/${id}`} className="w-max mx-auto h-full overflow-hidden border-2 hover:border-primary relative">
       {/* 🔹 Icono de Favorito */}
@@ -44,11 +46,11 @@ export const GameCard = ({ id, title, description, icon, bgColor, level, ageRang
       <CardContent className="px-6 py-4">
         <div className="space-y-2">
           <div className="flex justify-between text-sm">
-            <span className="text-muted-foreground">Nivel:</span>
+            <span className="text-muted-foreground">{t("level")}:</span>
             <span className="font-semibold">{level}</span>
           </div>
           <div className="flex justify-between text-sm">
-            <span className="text-muted-foreground">Edad recomendada:</span>
+            <span className="text-muted-foreground">{t("ageRange")}:</span>
             <span className="font-semibold">{ageRange}</span>
           </div>
         </div>
@@ -56,7 +58,7 @@ export const GameCard = ({ id, title, description, icon, bgColor, level, ageRang
 
       {/* 🔹 Botón para jugar */}
       <CardFooter className="pb-6">
-        <span className="text-primary font-semibold cursor-pointer hover:underline">Jugar ahora →</span>
+        <span className="text-primary font-semibold cursor-pointer hover:underline">{t("playNow")}</span>
       </CardFooter>
     </Card>
   );

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter } from '@/i18n/routing';
 import { useAuthStore } from '@/store/auth';
 
 export const useAuth = () => {
@@ -38,16 +38,26 @@ export const useAuth = () => {
         setLoading(true);
         setError(null);
         try {
-            const response = await fetch(`${url}/auth/signup`, {
+            const signupResponse = await fetch(`${url}/auth/signup`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name, email, password: pass }),
             });
 
-            if (!response.ok) throw new Error('SIGNUP_ERROR');
+            if (!signupResponse.ok) throw new Error('SIGNUP_ERROR');
 
-            await login(email, pass);
+            const loginResponse = await fetch(`${url}/auth/login`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, password: pass }),
+            });
 
+            if (!loginResponse.ok) throw new Error('AUTH_ERROR');
+            const data = await loginResponse.json();
+
+            localStorage.setItem('math-token', data.access_token);
+            loginStore(data.user, data.access_token);
+            router.push('/dashboard');
         } catch (err) {
             setError(err instanceof Error ? err.message : 'Unknown error');
         } finally {

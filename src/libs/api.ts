@@ -14,13 +14,13 @@ export async function apiRequest(endpoint: string, options: RequestInit = {}) {
 
     const response = await fetch(`${BASE_URL}${endpoint}`, { ...options, headers });
 
-    if (!response.ok) {
-        throw new Error(`Error ${response.status}: No autorizado`);
-    }
-
     if (response.status === 401) {
         useAuthStore.getState().logout();
         return;
+    }
+
+    if (!response.ok) {
+        throw new Error(`Error ${response.status}`);
     }
 
     return response.json();

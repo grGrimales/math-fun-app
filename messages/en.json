@@ -167,6 +167,17 @@
     "errorLoadingStats": "Error loading stats. Please try again later.",
     "errorSavingProgress": "Error saving progress. Please try again later."
   },
+  "Results": {
+    "back": "Back",
+    "title": "My Results",
+    "subtitle": "Look at everything you have achieved!",
+    "gamesPlayed": "Games played",
+    "totalStars": "Total stars",
+    "bestLevel": "Best level",
+    "recentHistory": "Recent history",
+    "loading": "Loading results",
+    "noData": "You haven't played any games yet. Start now!"
+  },
   "WritingGame": {
     "title": "Writing Numbers",
     "instruction": "Write this number in words:",

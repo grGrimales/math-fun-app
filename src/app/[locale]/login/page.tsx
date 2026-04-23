@@ -11,7 +11,7 @@ import { CardDescription } from "@/components/atoms/game/CardDescription";
 import { CardContent } from "@/components/atoms/game/CardContent";
 import { CardFooter } from "@/components/atoms/game/CardFooter";
 import { Button } from "@/components/atoms/Button";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 
 export default function LoginPage() {
     const t = useTranslations("Login");

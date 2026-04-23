@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import { Button } from "@/components/atoms/Button";
 import { MinusIcon, Sparkles, Trophy, ArrowLeft, Timer } from "lucide-react";
 import confetti from "canvas-confetti";
@@ -45,6 +45,11 @@ export default function SubtractionGame({ difficulty, onExit }: SubtractionGameP
     const [correct, setCorrect] = useState<boolean | null>(null);
     const [status, setStatus] = useState<"playing" | "finished">("playing");
     const [timeLeft, setTimeLeft] = useState(config.time);
+    const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+    useEffect(() => {
+        return () => { if (timeoutRef.current) clearTimeout(timeoutRef.current); };
+    }, []);
 
     const generateProblems = useCallback(() => {
         const list: Problem[] = [];
@@ -91,7 +96,7 @@ export default function SubtractionGame({ difficulty, onExit }: SubtractionGameP
             });
         }
 
-        setTimeout(() => {
+        timeoutRef.current = setTimeout(() => {
             if (current < problems.length - 1) {
                 setCurrent((i) => i + 1);
                 setSelected(null);
@@ -208,15 +213,16 @@ export default function SubtractionGame({ difficulty, onExit }: SubtractionGameP
                         </>
                     )}
 
-                    {status === "playing" && (
-                        <CardFooter>
-                            <Button size="lg" className="w-full mt-4" onClick={() => setStatus("finished")}>
-                                <Sparkles className="mr-2 h-5 w-5" />
-                                {t("finish")}
-                            </Button>
-                        </CardFooter>
-                    )}
                 </CardContent>
+
+                {status === "playing" && (
+                    <CardFooter>
+                        <Button size="lg" className="w-full mt-4" onClick={() => setStatus("finished")}>
+                            <Sparkles className="mr-2 h-5 w-5" />
+                            {t("finish")}
+                        </Button>
+                    </CardFooter>
+                )}
             </Card>
         </div>
     );
