@@ -76,7 +76,7 @@ export default function DashboardPage() {
                         <h2 className="text-2xl font-black text-text flex items-center gap-2 uppercase tracking-tighter">
                             <GamepadIcon className="text-primary" /> {t('chooseMission')}
                         </h2>
-                        <div className="grid grid-cols-1 md:grid-cols-2  gap-6">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-stretch">
                             <GameCard
                                 id="addition"
                                 title={t('games.sums.title')}

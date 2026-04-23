@@ -8,7 +8,7 @@ interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export const Card = ({ className, children, href, ...props }: CardProps) => {
   return href ? (
-    <Link href={href} className="block">
+    <Link href={href} className="block h-full">
       <div
         className={cn(
           "transition-transform hover:scale-105 rounded-xl border border-gray-200 shadow-md hover:shadow-lg",
