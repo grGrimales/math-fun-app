@@ -155,7 +155,7 @@ export default function MultiplicationGame({ difficulty, onExit }: Multiplicatio
                             <div className="grid grid-cols-2 gap-4">
                                 {problems[current].options.map((opt: number, idx: number) => (
                                     <Button
-                                        key={idx}
+                                        key={`${current}-${idx}`}
                                         onClick={() => handleSelect(opt)}
                                         disabled={selected !== null}
                                         className="h-16 text-xl font-bold rounded-xl"

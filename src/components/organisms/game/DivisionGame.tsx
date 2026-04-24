@@ -190,7 +190,7 @@ export default function DivisionGame({ difficulty, onExit }: DivisionGameProps) 
                             <div className="grid grid-cols-2 gap-4">
                                 {problem.options.map((opt, idx) => (
                                     <Button
-                                        key={idx}
+                                        key={`${current}-${idx}`}
                                         onClick={() => handleSelect(opt)}
                                         disabled={selected !== null}
                                         className="h-16 text-xl font-bold rounded-xl"
