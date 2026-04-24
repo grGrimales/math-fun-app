@@ -92,10 +92,10 @@ export default function AdditionGame({ difficulty, onExit }: AdditionGameProps) 
     }
 
     timeoutRef.current = setTimeout(() => {
+      setSelected(null);
+      setCorrect(null);
       if (current < problems.length - 1) {
         setCurrent((i) => i + 1);
-        setSelected(null);
-        setCorrect(null);
       } else {
         setStatus("finished");
       }
@@ -108,6 +108,9 @@ export default function AdditionGame({ difficulty, onExit }: AdditionGameProps) 
         setTimeLeft((prev) => {
           if (prev <= 1) {
             clearInterval(timer);
+            if (timeoutRef.current) clearTimeout(timeoutRef.current);
+            setSelected(null);
+            setCorrect(null);
             setStatus("finished");
             return 0;
           }
@@ -135,6 +138,17 @@ export default function AdditionGame({ difficulty, onExit }: AdditionGameProps) 
     }
   }, [status, saveStats]);
 
+
+  const handleRestart = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setSelected(null);
+    setCorrect(null);
+    setStatus("playing");
+    setCurrent(0);
+    setScore(0);
+    setTimeLeft(config.time);
+    generateProblems();
+  };
 
   const [isMounted, setIsMounted] = useState(false);
 
@@ -216,7 +230,7 @@ export default function AdditionGame({ difficulty, onExit }: AdditionGameProps) 
                 })}
               </p>
               <div className="mt-12 flex flex-col">
-                <Button className="mb-4" onClick={() => { setStatus("playing"); setCurrent(0); setScore(0); setTimeLeft(config.time); generateProblems(); }} size="md">
+                <Button className="mb-4" onClick={handleRestart} size="md">
                   <Sparkles className="mr-2 h-5 w-5" />
                   {t("playAgain")}
                 </Button>

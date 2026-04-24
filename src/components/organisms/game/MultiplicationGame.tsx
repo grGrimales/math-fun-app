@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback, useMemo } from "react";
+import { useEffect, useState, useCallback, useMemo, useRef } from "react";
 import { Button } from "@/components/atoms/Button";
 import { XIcon, Trophy, ArrowLeft, Timer } from "lucide-react";
 import confetti from "canvas-confetti";
@@ -36,6 +36,11 @@ export default function MultiplicationGame({ difficulty, onExit }: Multiplicatio
     const [correct, setCorrect] = useState<boolean | null>(null);
     const [status, setStatus] = useState<"playing" | "finished">("playing");
     const [timeLeft, setTimeLeft] = useState(config.time);
+    const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+    useEffect(() => {
+        return () => { if (timeoutRef.current) clearTimeout(timeoutRef.current); };
+    }, []);
 
     const generateProblems = useCallback(() => {
         const list: { num1: number; num2: number; answer: number; options: number[] }[] = [];
@@ -77,11 +82,11 @@ export default function MultiplicationGame({ difficulty, onExit }: Multiplicatio
             });
         }
 
-        setTimeout(() => {
+        timeoutRef.current = setTimeout(() => {
+            setSelected(null);
+            setCorrect(null);
             if (current < problems.length - 1) {
                 setCurrent((i) => i + 1);
-                setSelected(null);
-                setCorrect(null);
             } else {
                 setStatus("finished");
             }
@@ -94,6 +99,9 @@ export default function MultiplicationGame({ difficulty, onExit }: Multiplicatio
                 setTimeLeft((prev) => {
                     if (prev <= 1) {
                         clearInterval(timer);
+                        if (timeoutRef.current) clearTimeout(timeoutRef.current);
+                        setSelected(null);
+                        setCorrect(null);
                         setStatus("finished");
                         return 0;
                     }
