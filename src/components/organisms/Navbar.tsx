@@ -3,10 +3,9 @@
 import { useState, useMemo } from "react";
 import { Home, GamepadIcon, Trophy, LogIn, Sparkles, Menu, X, User, LogOut } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { Link, usePathname, useRouter } from "@/i18n/routing"; // Asegúrate que el router sea el de i18n
+import { Link, usePathname, useRouter } from "@/i18n/routing";
 import { useAuthStore } from "@/store/auth";
 import { cn } from "@/libs/utils";
-import { useMobile } from "@/hooks/use-mobile";
 import { Button } from "../atoms/Button";
 import { LanguageSwitcher } from "../atoms/LanguageSwitcher";
 
@@ -14,7 +13,6 @@ export const Navbar = () => {
   const t = useTranslations("Navbar");
   const pathname = usePathname();
   const router = useRouter();
-  const isMobile = useMobile();
   const [menuOpen, setMenuOpen] = useState(false);
 
   const { user, logout } = useAuthStore();
@@ -65,81 +63,76 @@ export const Navbar = () => {
           </span>
         </Link>
 
-        {!isMobile && (
-          <nav className="flex items-center space-x-1">
-            {routes.map((route) => (
-              <Link key={route.href} href={route.href}>
-                <Button
-                  variant={route.active ? "default" : "ghost"}
-                  className={cn(
-                    "rounded-xl font-bold transition-all",
-                    route.active
-                      ? "bg-primary text-white"
-                      : "text-muted hover:text-primary hover:bg-pink-50"
-                  )}
-                >
-                  {route.icon}
-                  {route.label}
+        {/* Desktop nav — visible en md+ */}
+        <nav className="hidden md:flex items-center space-x-1">
+          {routes.map((route) => (
+            <Link key={route.href} href={route.href}>
+              <Button
+                variant={route.active ? "default" : "ghost"}
+                className={cn(
+                  "rounded-xl font-bold transition-all",
+                  route.active
+                    ? "bg-primary text-white"
+                    : "text-muted hover:text-primary hover:bg-pink-50"
+                )}
+              >
+                {route.icon}
+                {route.label}
+              </Button>
+            </Link>
+          ))}
+
+          <div className="mx-4 h-6 w-[1px] bg-pink-100" />
+          <LanguageSwitcher />
+
+          {user ? (
+            <div className="flex items-center gap-2 ml-4">
+              <Link href="/dashboard">
+                <Button variant="outline" className="border-primary text-primary font-bold rounded-xl">
+                  <User className="mr-2 h-4 w-4" />
+                  {user.name}
                 </Button>
               </Link>
-            ))}
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={handleLogout}
+                className="text-red-400 hover:text-red-600 hover:bg-red-50 rounded-xl"
+              >
+                <LogOut size={20} />
+              </Button>
+            </div>
+          ) : (
+            <Link href="/login" className="ml-4">
+              <Button className="bg-primary text-white hover:bg-primary/90 font-black rounded-xl shadow-md shadow-pink-100">
+                <LogIn className="mr-2 h-5 w-5" />
+                {t("login")}
+              </Button>
+            </Link>
+          )}
+        </nav>
 
-            <div className="mx-4 h-6 w-[1px] bg-pink-100" />
-            <LanguageSwitcher />
-
-            {user ? (
-              <div className="flex items-center gap-2 ml-4">
-                <Link href="/dashboard">
-                  <Button variant="outline" className="border-primary text-primary font-bold rounded-xl">
-                    <User className="mr-2 h-4 w-4" />
-                    {user.name}
-                  </Button>
-                </Link>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  onClick={handleLogout}
-                  className="text-red-400 hover:text-red-600 hover:bg-red-50 rounded-xl"
-                >
-                  <LogOut size={20} />
-                </Button>
-              </div>
-            ) : (
-              <Link href="/login" className="ml-4">
-                <Button className="bg-primary text-white hover:bg-primary/90 font-black rounded-xl shadow-md shadow-pink-100">
-                  <LogIn className="mr-2 h-5 w-5" />
-                  {t("login")}
-                </Button>
-              </Link>
-            )}
-          </nav>
-        )}
-
-        {isMobile && (
-          <div className="flex items-center space-x-3">
-            <LanguageSwitcher />
-            <button
-              onClick={() => setMenuOpen(!menuOpen)}
-              className="text-primary p-2 hover:bg-pink-50 rounded-lg transition-colors"
-            >
-              {menuOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
-            </button>
-          </div>
-        )}
+        {/* Controles móvil — visibles solo en menos de md */}
+        <div className="flex md:hidden items-center space-x-3">
+          <LanguageSwitcher />
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="text-primary p-2 hover:bg-pink-50 rounded-lg transition-colors"
+          >
+            {menuOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
+          </button>
+        </div>
       </div>
 
-      {isMobile && menuOpen && (
-        <div className="animate-in fade-in slide-in-from-top-4 duration-300">
+      {/* Menú móvil desplegable */}
+      {menuOpen && (
+        <div className="md:hidden animate-in fade-in slide-in-from-top-4 duration-300">
           <div
             className="fixed cursor-pointer inset-0 bg-text/20 backdrop-blur-sm z-40 mt-16"
             onClick={() => setMenuOpen(false)}
           />
 
-
           <nav className="fixed top-16 left-0 w-full bg-white border-b border-pink-100 p-6 flex flex-col space-y-3 z-50">
-
-
-
             <div className="w-full space-y-2 mb-6">
               {routes.map((route) => (
                 <Link key={route.href} href={route.href} onClick={() => setMenuOpen(false)} className="block">

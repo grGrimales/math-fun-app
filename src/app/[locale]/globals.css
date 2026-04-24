@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+body {
+  overflow-x: hidden;
+}
+
 @theme {
   --color-primary: #F655A6; /* Rosa oscuro */
   --color-secondary: #FEE1EF; /* Rosa claro */
