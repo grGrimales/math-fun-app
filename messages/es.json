@@ -61,6 +61,7 @@
     "levelAdvanced": "Intermedio a Avanzado",
     "age69": "6-9 años",
     "age811": "8-11 años",
+    "age11plus": "11+ años",
     "playAgain": "Jugar de nuevo",
     "backToLauncher": "Cambiar dificultad",
     "easy": "Fácil",
@@ -68,6 +69,8 @@
     "hard": "Difícil",
     "writing": "Escribe el Número",
     "writingDesc": "¡Aprende a escribir números en letras como un profesional!",
+    "division": "Juego de Divisiones",
+    "divisionDesc": "Practica divisiones exactas y desafía tu mente",
     "levelIntermediate": "Intermedio",
     "age79": "7-9 años"
   },
@@ -153,6 +156,10 @@
       "subtractions": {
         "title": "Resta Galáctica",
         "desc": "¡Cuidado con los asteroides que restan puntos!"
+      },
+      "division": {
+        "title": "División Maestra",
+        "desc": "¡Domina las divisiones exactas y demuestra que eres un genio!"
       }
     },
     "recentActivity": "Actividad Reciente",

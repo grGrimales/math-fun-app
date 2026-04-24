@@ -1,6 +1,6 @@
 "use client";
 
-import { PlusIcon, MinusIcon, XIcon, Sparkles, PenLine } from "lucide-react";
+import { PlusIcon, MinusIcon, XIcon, Sparkles, PenLine, Divide } from "lucide-react";
 import { GameCard } from "@/components/molecules/game/GameCard";
 import { useTranslations } from "next-intl";
 
@@ -48,6 +48,16 @@ export const GamePage = () => {
       ageRange: t("age79"),
       image: "/placeholder.svg?height=200&width=300",
     },
+    {
+      id: "division",
+      title: t("division"),
+      description: t("divisionDesc"),
+      icon: <Divide className="h-10 w-10 text-orange-600" />,
+      bgColor: "bg-orange-50",
+      level: t("levelAdvanced"),
+      ageRange: t("age11plus"),
+      image: "/placeholder.svg?height=200&width=300",
+    },
   ];
 
   return (
@@ -67,7 +77,7 @@ export const GamePage = () => {
         </p>
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 items-stretch">
         {games.map((game) => (
           <GameCard key={game.id} {...game} />
         ))}

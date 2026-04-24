@@ -12,6 +12,7 @@ import { cn } from "@/libs/utils";
 import SubtractionGame from "@/components/organisms/game/SubtractionGame";
 import MultiplicationGame from "@/components/organisms/game/MultiplicationGame";
 import { WritingNumbersGame } from "@/components/organisms/game/WritingNumbersGame";
+import DivisionGame from "@/components/organisms/game/DivisionGame";
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -48,6 +49,8 @@ export default function GameLauncherPage({ params }: PageProps) {
           <AdditionGame difficulty={difficulty} onExit={() => setDifficulty(null)} />
         ) : id === "writing" ? (
           <WritingNumbersGame difficulty={difficulty} onExit={() => setDifficulty(null)} />
+        ) : id === "division" ? (
+          <DivisionGame difficulty={difficulty} onExit={() => setDifficulty(null)} />
         ) : null}
       </div>
     );

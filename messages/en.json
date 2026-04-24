@@ -61,6 +61,7 @@
     "levelAdvanced": "Intermediate to Advanced",
     "age69": "6-9 years old",
     "age811": "8-11 years old",
+    "age11plus": "11+ years old",
     "playAgain": "Play Again",
     "backToLauncher": "Change Difficulty",
     "easy": "Easy",
@@ -68,6 +69,8 @@
     "hard": "Hard",
     "writing": "Write the Number",
     "writingDesc": "Learn to write numbers in words like a pro!",
+    "division": "Division Game",
+    "divisionDesc": "Practice exact divisions and challenge your mind",
     "levelIntermediate": "Intermediate",
     "age79": "7-9 years old"
   },
@@ -154,6 +157,10 @@
       "subtractions": {
         "title": "Galactic Minus",
         "desc": "Watch out for asteroids that take away points!"
+      },
+      "division": {
+        "title": "Master Division",
+        "desc": "Master exact divisions and prove you are a genius!"
       }
     },
     "recentActivity": "Recent Activity",

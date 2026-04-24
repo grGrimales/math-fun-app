@@ -3,7 +3,7 @@ import { useTranslations } from "next-intl";
 
 export interface GameActivity {
     id: string;
-    gameType: 'addition' | 'subtraction' | 'multiplication';
+    gameType: 'addition' | 'subtraction' | 'multiplication' | 'division' | 'writing';
     score: number;
     difficulty: string;
     createdAt: string;

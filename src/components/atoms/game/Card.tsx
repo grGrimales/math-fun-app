@@ -11,7 +11,7 @@ export const Card = ({ className, children, href, ...props }: CardProps) => {
     <Link href={href} className="block h-full">
       <div
         className={cn(
-          "transition-transform hover:scale-105 rounded-xl border border-gray-200 shadow-md hover:shadow-lg",
+          "h-full transition-transform hover:scale-105 rounded-xl border border-gray-200 shadow-md hover:shadow-lg",
           className
         )}
         {...props}

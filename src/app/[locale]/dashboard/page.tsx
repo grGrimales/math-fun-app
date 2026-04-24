@@ -2,7 +2,7 @@
 import { useTranslations } from "next-intl";
 import { useAuthStore } from "@/store/auth";
 import { MathBackground } from "@/components/organisms/MathBackground";
-import { Trophy, Target, Flame, Star, GamepadIcon, Plus, Minus, XIcon } from "lucide-react";
+import { Trophy, Target, Flame, Star, GamepadIcon, Plus, Minus, XIcon, Divide } from "lucide-react";
 import { GameCard } from "@/components/molecules/game/GameCard";
 import { StatCard } from "@/components/molecules/dashboard/StatCard";
 import { UserHeroHeader } from "@/components/organisms/dashboard/UserHeroHeader";
@@ -113,6 +113,16 @@ export default function DashboardPage() {
                                 bgColor="bg-yellow-50"
                                 level="3" ageRange="7-9"
                                 icon={<XIcon className="text-yellow-600" size={32} />}
+                                image=""
+                            />
+
+                            <GameCard
+                                id="division"
+                                title={t('games.division.title')}
+                                description={t('games.division.desc')}
+                                bgColor="bg-orange-50"
+                                level="4" ageRange="11+"
+                                icon={<Divide className="text-orange-600" size={32} />}
                                 image=""
                             />
                         </div>

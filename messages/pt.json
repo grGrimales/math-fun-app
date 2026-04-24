@@ -61,6 +61,7 @@
     "levelAdvanced": "Intermediário a Avançado",
     "age69": "6-9 anos",
     "age811": "8-11 anos",
+    "age11plus": "11+ anos",
     "playAgain": "Jogar novamente",
     "backToLauncher": "Mudar dificuldade",
     "easy": "Fácil",
@@ -68,6 +69,8 @@
     "hard": "Difícil",
     "writing": "Escreva o Número",
     "writingDesc": "Aprenda a escrever números por extenso como um profissional!",
+    "division": "Jogo de Divisão",
+    "divisionDesc": "Pratique divisões exatas e desafie sua mente",
     "levelIntermediate": "Intermediário",
     "age79": "7-9 anos"
   },
@@ -154,6 +157,10 @@
       "subtractions": {
         "title": "Subtração Galáctica",
         "desc": "Cuidado com os asteroides que tiram pontos!"
+      },
+      "division": {
+        "title": "Divisão Mestre",
+        "desc": "Domine as divisões exatas e prove que você é um gênio!"
       }
     },
     "recentActivity": "Atividade Recente",
